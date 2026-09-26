@@ -3,86 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um site para uma dama</title>
+    <title>Quer sair comigo?</title>
     <style>
         body {
-            font-family: 'Times New Roman', sans-serif;
-            background-color: #070738;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6e6;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
             overflow: hidden;
             text-align: center;
         }
 
-        h1 {
-            color: #FFFFFF;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+            position: relative;
         }
 
-        .botoes {
+        h1 {
+            color: #ff4d6d;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #4a4a4a;
+            font-size: 18px;
+        }
+
+        .options-container {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .option-item {
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-container {
             display: flex;
-            gap: 20px;
-            position: relative;
-            width: 300px;
             justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            height: 50px;
+            position: relative;
         }
 
         button {
-            padding: 15px 30px;
-            font-size: 1.2rem;
+            padding: 12px 25px;
+            font-size: 18px;
             border: none;
-            border-radius: 10px;
+            border-radius: 25px;
             cursor: pointer;
-            transition: transform 0.1s ease;
+            font-weight: bold;
+            transition: transform 0.1s;
         }
 
         #btn-sim {
-            background-color: #2e6f40;
+            background-color: #ff4d6d;
             color: white;
         }
 
+        #btn-sim:hover {
+            transform: scale(1.1);
+        }
+
         #btn-nao {
-          background-color: #e74c3c;
-          color: white;
+            background-color: #7a7a7a;
+            color: white;
+            position: absolute;
+            right: 50px; /* Alinhamento inicial */
+        }
+
+        .sucesso {
+            display: none;
+        }
+
+        .sucesso h2 {
+            color: #2a9d8f;
         }
     </style>
 </head>
 <body>
 
-    <h1>Quer sair tomar café comigo um dia Ana? ☕✨☕</h1>
-    
-    <div class="botoes">
-        <button id="btn-sim" onclick="aceitou()">SIM!</button>
-        <button id="btn-nao" onmouseover="fugir()" onclick="fugir()">NÃO</button>
+    <div class="container" id="card-principal">
+        <h1>Quer sair comigo? 🌹</h1>
+        <p>Escolha um dos lugares abaixo para o nosso encontro:</p>
+        
+        <div class="options-container">
+            <div class="option-item">
+                <input type="radio" id="lugar1" name="lugar" value="Jantar num restaurante japonês" checked>
+                <label for="lugar1">🍣 Jantar japonês</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="lugar2" name="lugar" value="Ir ao cinema e comer pipoca">
+                <label for="lugar2">🎬 Cinema e pipoca</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="lugar3" name="lugar" value="Tomar um café e comer um doce">
+                <label for="lugar3">☕ Café e um doce</label>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button id="btn-sim" onclick="aceitou()">SIM!</button>
+            <button id="btn-nao" onmouseover="fugir()" onclick="fugir()">NÃO</button>
+        </div>
+    </div>
+
+    <div class="container sucesso" id="card-sucesso">
+        <h2>Eba! Mal posso esperar! 🥰</h2>
+        <p id="mensagem-final"></p>
     </div>
 
     <script>
+        const btnNao = document.getElementById('btn-nao');
+        const cardPrincipal = document.getElementById('card-principal');
+        const cardSucesso = document.getElementById('card-sucesso');
+        const mensagemFinal = document.getElementById('mensagem-final');
+
+        // Função que faz o botão "Não" fugir de verdade
         function fugir() {
-            const btnNao = document.getElementById('btn-nao');
-            
-            
-            const larguraTela = window.innerWidth - btnNao.offsetWidth;
-            const alturaTela = window.innerHeight - btnNao.offsetHeight;
-            
-            const novoX = Math.random() * larguraTela;
-            const novoY = Math.random() * alturaTela;
-            
-            
+            // Desconta o tamanho aproximado do botão para não sumir das bordas
+            const larguraJanela = window.innerWidth - btnNao.offsetWidth;
+            const alturaJanela = window.innerHeight - btnNao.offsetHeight;
+
+            // Gera posições aleatórias na tela inteira
+            const novoX = Math.floor(Math.random() * larguraJanela);
+            const novoY = Math.floor(Math.random() * alturaJanela);
+
             btnNao.style.position = 'fixed';
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
         }
 
+        // Função executada ao clicar no "Sim"
         function aceitou() {
-            alert('Aee sabia que vc iria aceitar, te conto os detalhes por mensagem');
-            window.location.href = "https://wa.me/qr/67POHMX25I5EE1";
+            const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
+            
+            cardPrincipal.style.display = 'none';
+            cardSucesso.style.display = 'block';
+            
+            mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}. Vou te mandar uma mensagem para combinarmos o horário! ❤️`;
         }
     </script>
-
 </body>
 </html>
