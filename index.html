@@ -15,6 +15,7 @@
             margin: 0;
             overflow: hidden;
             text-align: center;
+            position: relative;
         }
 
         .container {
@@ -25,6 +26,7 @@
             max-width: 400px;
             width: 90%;
             position: relative;
+            z-index: 10;
         }
 
         h1 {
@@ -80,7 +82,7 @@
             background-color: #7a7a7a;
             color: white;
             position: absolute;
-            right: 50px; /* Alinhamento inicial */
+            right: 50px;
         }
 
         .sucesso {
@@ -89,6 +91,27 @@
 
         .sucesso h2 {
             color: #2a9d8f;
+        }
+
+        /* Estilos da chuva de corações */
+        .coracao {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 1;
+            animation: cair linear forwards;
+        }
+
+        @keyframes cair {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
@@ -122,21 +145,23 @@
     <div class="container sucesso" id="card-sucesso">
         <h2>Eba! Mal posso esperar! 🥰</h2>
         <p id="mensagem-final"></p>
+        <p style="font-size: 14px; color: #888;">Redirecionando para o WhatsApp...</p>
     </div>
 
     <script>
+        // SEU NÚMERO DE WHATSAPP AQUI (Apenas números, com o DDD da sua região)
+        // Exemplo: '5511999999999' (55 = Brasil)
+        const SEU_NUMERO_WHATSAPP = '5500000000000'; 
+
         const btnNao = document.getElementById('btn-nao');
         const cardPrincipal = document.getElementById('card-principal');
         const cardSucesso = document.getElementById('card-sucesso');
         const mensagemFinal = document.getElementById('mensagem-final');
 
-        // Função que faz o botão "Não" fugir de verdade
         function fugir() {
-            // Desconta o tamanho aproximado do botão para não sumir das bordas
             const larguraJanela = window.innerWidth - btnNao.offsetWidth;
             const alturaJanela = window.innerHeight - btnNao.offsetHeight;
 
-            // Gera posições aleatórias na tela inteira
             const novoX = Math.floor(Math.random() * larguraJanela);
             const novoY = Math.floor(Math.random() * alturaJanela);
 
@@ -145,14 +170,53 @@
             btnNao.style.top = novoY + 'px';
         }
 
-        // Função executada ao clicar no "Sim"
         function aceitou() {
             const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
             
             cardPrincipal.style.display = 'none';
             cardSucesso.style.display = 'block';
             
-            mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}. Vou te mandar uma mensagem para combinarmos o horário! ❤️`;
+            mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}.`;
+
+            // Ativa os efeitos extras
+            criarChuvaDeCoracoes();
+            enviarWhatsApp(localSelecionado);
+        }
+
+        // Função que cria o efeito visual dos corações caindo
+        function criarChuvaDeCoracoes() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const coracao = document.createElement('div');
+                    coracao.classList.add('coracao');
+                    coracao.innerText = '❤️';
+                    
+                    // Posição horizontal aleatória
+                    coracao.style.left = Math.random() * 100 + 'vw';
+                    // Tamanhos e velocidades variadas para efeito dinâmico
+                    coracao.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    coracao.style.animationDuration = Math.random() * 2 + 2 + 's';
+                    
+                    document.body.appendChild(coracao);
+
+                    // Remove o elemento após o fim da animação
+                    setTimeout(() => {
+                        coracao.remove();
+                    }, 4000);
+                }, i * 100);
+            }
+        }
+
+        // Função que monta o link e envia para o WhatsApp
+        function enviarWhatsApp(local) {
+            const textoMensagem = `Oi! Eu aceitei o seu convite! 🥰 Nosso encontro está confirmado para: ${local}.`;
+            const mensagemFormatada = encodeURIComponent(textoMensagem);
+            const urlWhatsApp = `https://wa.me{SEU_NUMERO_WHATSAPP}?text=${mensagemFormatada}`;
+
+            // Redireciona após 2.5 segundos para a pessoa conseguir ver o balão e os corações
+            setTimeout(() => {
+                window.location.href = urlWhatsApp;
+            }, 2500);
         }
     </script>
 </body>
