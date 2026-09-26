@@ -18,13 +18,13 @@
             position: relative;
         }
 
-        /* Camada do Papel de Parede Animado */
+        /* Camada do Papel de Parede Animado Totalmente Corrigida */
         .fundo-animado {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
             z-index: 1;
             pointer-events: none;
@@ -32,10 +32,10 @@
 
         .elemento-fundo {
             position: absolute;
-            bottom: -50px;
-            font-size: 24px;
-            opacity: 0.6;
+            bottom: -60px;
+            opacity: 0.85; /* Deixado mais nítido e visível */
             animation: subirFundo linear infinite;
+            user-select: none;
         }
 
         @keyframes subirFundo {
@@ -43,20 +43,20 @@
                 transform: translateY(0) rotate(0deg);
                 opacity: 0;
             }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            15% { opacity: 0.85; }
+            85% { opacity: 0.85; }
             100% {
-                transform: translateY(-110vh) rotate(360deg);
+                transform: translateY(-115vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
         /* Card Principal */
         .container {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.96);
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             max-width: 400px;
             width: 90%;
             position: relative;
@@ -106,7 +106,6 @@
             position: relative;
         }
 
-        /* Padronização de tamanho dos botões */
         button {
             height: 45px;
             font-size: 16px;
@@ -143,7 +142,6 @@
             min-width: 110px;
         }
 
-        /* Classes de controle das etapas */
         .escondido {
             display: none !important;
         }
@@ -172,6 +170,7 @@
 </head>
 <body>
 
+    <!-- Div do fundo garantida antes dos elementos de interface -->
     <div class="fundo-animado" id="fundo-animado"></div>
 
     <!-- PARTE 1: O Convite Inicial -->
@@ -223,8 +222,7 @@
         const cardOpcoes = document.getElementById('card-opcoes');
         const cardSucesso = document.getElementById('card-sucesso');
         const mensagemFinal = document.getElementById('mensagem-final');
-        const fundoAnimado = document.getElementById('fundo-animado');
-
+        
         const frasesPersistentes = [
             "Tem certeza?",
             "Não quer considerar?",
@@ -234,27 +232,28 @@
             "Nem um cafezinho?"
         ];
 
-        // Cria o fundo animado
-        const elementos = ['❤️', '🌹', '💖', '🌹', '💕'];
-        for (let i = 0; i < 40; i++) {
-            const el = document.createElement('div');
-            el.classList.add('elemento-fundo');
-            el.innerText = elementos[Math.floor(Math.random() * elementos.length)];
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = Math.random() * 20 + 15 + 'px';
-            el.style.animationDuration = Math.random() * 5 + 5 + 's';
-            el.style.animationDelay = Math.random() * 5 + 's';
-            fundoAnimado.appendChild(el);
-        }
+        // Inicialização garantida do papel de parede animado em loop
+        document.addEventListener("DOMContentLoaded", () => {
+            const fundoAnimado = document.getElementById('fundo-animado');
+            const elementos = ['❤️', '🌹', '💖', '🌹', '💕'];
+            
+            for (let i = 0; i < 40; i++) {
+                const el = document.createElement('div');
+                el.classList.add('elemento-fundo');
+                el.innerText = elementos[Math.floor(Math.random() * elementos.length)];
+                el.style.left = Math.random() * 95 + 'vw';
+                el.style.fontSize = Math.random() * 20 + 20 + 'px';
+                el.style.animationDuration = Math.random() * 6 + 5 + 's';
+                el.style.animationDelay = Math.random() * 6 + 's';
+                fundoAnimado.appendChild(el);
+            }
+        });
 
-        // Fuga estritamente limitada ao redor do card central
+        // Fuga limitada e orbitando o card principal
         function fugir() {
-            // Posiciona em relação à janela, mas usando margens próximas ao centro
             const centroX = window.innerWidth / 2;
             const centroY = window.innerHeight / 2;
 
-            // Define uma área muito menor (raio máximo de 100px para os lados e 60px para cima/baixo)
-            // Isso força o botão a flutuar colado ao redor do container branco central
             const limiteRaioX = 90; 
             const limiteRaioY = 60; 
 
@@ -306,3 +305,4 @@
             }
         }
 
+        function enviarWhatsApp(local) {
