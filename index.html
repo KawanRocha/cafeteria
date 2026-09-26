@@ -18,7 +18,7 @@
             position: relative;
         }
 
-        /* Camada com MUITO MAIS corações e rosas subindo por toda a tela */
+        /* Camada com grande densidade de corações e rosas subindo */
         .fundo-animado {
             position: absolute;
             top: 0;
@@ -39,7 +39,7 @@
             user-select: none;
         }
 
-        /* Lista expandida e preenchida para cobrir toda a extensão lateral da tela */
+        /* Distribuição das trajetórias fixas e nativas para cobrir a tela */
         .elemento-fundo:nth-child(1) { left: 5%; font-size: 32px; animation-duration: 5s; animation-delay: 0s; }
         .elemento-fundo:nth-child(2) { left: 12%; font-size: 22px; animation-duration: 7s; animation-delay: 2s; }
         .elemento-fundo:nth-child(3) { left: 20%; font-size: 28px; animation-duration: 6s; animation-delay: 1s; }
@@ -106,7 +106,6 @@
             height: 18px;
         }
 
-        /* Container de botões corrigido para iniciar lado a lado perfeitamente */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -142,13 +141,12 @@
 
         .btn-verde:hover { transform: scale(1.1); }
 
-        /* Botão NÃO inicializado lado a lado e configurado para voar pela tela toda */
+        /* Botão NÃO em Vermelho */
         #btn-nao {
             background-color: #e63946;
             color: white;
             z-index: 12;
             min-width: 110px;
-            transition: none; /* Movimento instantâneo ao toque para ser impossível clicar */
         }
 
         .escondido { display: none !important; }
@@ -171,7 +169,6 @@
 </head>
 <body>
 
-    <!-- Papel de parede com densidade aumentada de corações e rosas -->
     <div class="fundo-animado">
         <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div> <div class="elemento-fundo">🌹</div>
@@ -182,12 +179,12 @@
         <div class="elemento-fundo">💖</div>
     </div>
 
-    <!-- PARTE 1: O Convite Inicial (Botões Lado a Lado Inicialmente) -->
+    <!-- PARTE 1: O Convite Inicial -->
     <div class="container" id="card-convite">
         <h1>Quer sair comigo? 🌹</h1>
         <div class="btn-container">
             <button class="btn-verde" id="btn-sim" onclick="irParaOpcoes()">SIM!</button>
-            <button id="btn-nao" onmouseover="fugirPelaTela()">NÃO</button>
+            <button id="btn-nao" onmouseenter="fugirPelaTela()" onmouseover="fugirPelaTela()">NÃO</button>
         </div>
     </div>
 
@@ -239,21 +236,33 @@
             "Nem um cafezinho?"
         ];
 
-        // NOVA FUNÇÃO DE FUGA GLOBAL: Move o botão instantaneamente para qualquer área livre do navegador
+        // FUNÇÃO DE FUGA CORRIGIDA: Força o comportamento 'fixed' imediato e calcula o tamanho real da janela
         function fugirPelaTela() {
-            // Calcula as dimensões limites da janela do usuário
-            const larguraJanela = window.innerWidth - btnNao.offsetWidth - 30;
-            const alturaJanela = window.innerHeight - btnNao.offsetHeight - 30;
-
-            // Sorteia uma coordenada livre na tela inteira
-            const novoX = Math.max(15, Math.floor(Math.random() * larguraJanela));
-            const novoY = Math.max(15, Math.floor(Math.random() * alturaJanela));
-
-            // Aplica o posicionamento fixado em relação à tela global
             btnNao.style.position = 'fixed';
+
+            // Desconta o tamanho do botão para garantir que ele não suma além das bordas
+            const larguraMax = window.innerWidth - btnNao.offsetWidth - 40;
+            const alturaMax = window.innerHeight - btnNao.offsetHeight - 40;
+
+            // Gera as posições aleatórias na tela toda
+            const novoX = Math.floor(Math.random() * larguraMax) + 20;
+            const novoY = Math.floor(Math.random() * alturaMax) + 20;
+
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
 
-            // Altera os textos dinamicamente
+            // Altera as frases aleatoriamente
             let fraseAleatoria;
             do {
+                fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
+            } while (fraseAleatoria === btnNao.innerText);
+
+            btnNao.innerText = fraseAleatoria;
+        }
+
+        function irParaOpcoes() {
+            cardConvite.classList.add('escondido');
+            cardOpcoes.classList.remove('escondido');
+        }
+
+        function finalizarEncontro() {
