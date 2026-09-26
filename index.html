@@ -1,12 +1,14 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quer sair comigo?</title>
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             background: #1a0003;
             display: flex;
             justify-content: center;
@@ -18,7 +20,7 @@
             position: relative;
         }
 
-        /* Papel de Parede de Corações e Rosas em CSS Puro */
+        /* FUNDO ANIMADO */
         .fundo-animado {
             position: absolute;
             top: 0;
@@ -54,13 +56,26 @@
         .elemento-fundo:nth-child(13) { left: 95%; font-size: 21px; animation-duration: 7.9s; animation-delay: 2.9s; }
 
         @keyframes subirFundo {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            15% { opacity: 0.85; }
-            85% { opacity: 0.85; }
-            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.85;
+            }
+
+            85% {
+                opacity: 0.85;
+            }
+
+            100% {
+                transform: translateY(-115vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
-        /* Estrutura dos Quadros Brancos */
+        /* CARD */
         .container {
             background-color: rgba(255, 255, 255, 0.96);
             padding: 35px 30px;
@@ -85,6 +100,7 @@
             font-size: 26px;
         }
 
+        /* OPÇÕES */
         .options-container {
             margin: 25px 0;
             text-align: left;
@@ -105,6 +121,7 @@
             height: 18px;
         }
 
+        /* BOTÕES */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -129,6 +146,7 @@
             white-space: nowrap;
         }
 
+        /* BOTÃO SIM */
         .btn-verde {
             width: 120px;
             background-color: #2a9d8f;
@@ -141,18 +159,21 @@
             transform: scale(1.1);
         }
 
+        /* BOTÃO NÃO */
         #btn-nao {
             background-color: #e63946;
             color: white;
             z-index: 12;
             min-width: 110px;
+            transition: left 0.15s ease, top 0.15s ease;
         }
 
+        /* ESCONDIDO */
         .escondido {
             display: none !important;
         }
 
-        /* Explosão Final de Corações */
+        /* CORAÇÕES */
         .coracao-clique {
             position: absolute;
             color: #ff4d6d;
@@ -163,111 +184,391 @@
         }
 
         @keyframes cair {
-            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
 
+    <!-- FUNDO COM CORAÇÕES E ROSAS -->
     <div class="fundo-animado">
-        <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
-        <div class="elemento-fundo">💖</div> <div class="elemento-fundo">🌹</div>
-        <div class="elemento-fundo">💕</div> <div class="elemento-fundo">❤️</div>
-        <div class="elemento-fundo">🌹</div> <div class="elemento-fundo">💖</div>
-        <div class="elemento-fundo">🌹</div> <div class="elemento-fundo">💕</div>
-        <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
+
+        <div class="elemento-fundo">❤️</div>
+        <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div>
+        <div class="elemento-fundo">🌹</div>
+        <div class="elemento-fundo">💕</div>
+        <div class="elemento-fundo">❤️</div>
+        <div class="elemento-fundo">🌹</div>
+        <div class="elemento-fundo">💖</div>
+        <div class="elemento-fundo">🌹</div>
+        <div class="elemento-fundo">💕</div>
+        <div class="elemento-fundo">❤️</div>
+        <div class="elemento-fundo">🌹</div>
+        <div class="elemento-fundo">💖</div>
+
     </div>
 
-    <!-- TELA 1: Pergunta inicial -->
+
+    <!-- PARTE 1 -->
     <div class="container" id="card-convite">
-        <h1>Quer sair comigo? 🌹</h1>
+
+        <h1 id="titulo-convite">
+            Quer sair comigo? 🌹
+        </h1>
+
         <div class="btn-container">
-            <button class="btn-verde" id="btn-sim" onclick="irParaOpcoes()">SIM!</button>
-            <button id="btn-nao" onmouseenter="fugirPelaTela()" onmouseover="fugirPelaTela()">NÃO</button>
+
+            <button
+                class="btn-verde"
+                id="btn-sim"
+                onclick="irParaOpcoes()">
+                SIM!
+            </button>
+
+            <button
+                id="btn-nao"
+                onmouseenter="fugirPelaTela()">
+                NÃO
+            </button>
+
         </div>
+
     </div>
 
-    <!-- TELA 2: Opções de lugares (Aparece após o SIM) -->
+
+    <!-- PARTE 2 -->
     <div class="container escondido" id="card-opcoes">
-        <h1>Nossa achava que vc iria clicar no não rs 😜</h1>
-        <p style="font-size: 16px; color: #666; margin-top: -15px;">Mas já que aceitou, escolha para onde vamos:</p>
-        
+
+        <h1>
+            Sabia que iria aceitar, onde seria bom de irmos para vc? 🥰
+        </h1>
+
         <div class="options-container">
+
             <div class="option-item">
-                <input type="radio" id="lugar1" name="lugar" value="Cinema" checked>
-                <label for="lugar1">🎬 Cinema</label>
+                <input
+                    type="radio"
+                    id="lugar1"
+                    name="lugar"
+                    value="Cinema"
+                    checked>
+
+                <label for="lugar1">
+                    🎬 Cinema
+                </label>
             </div>
+
+
             <div class="option-item">
-                <input type="radio" id="lugar2" name="lugar" value="Passeio no lago">
-                <label for="lugar2">🌅 Passeio no lago</label>
+                <input
+                    type="radio"
+                    id="lugar2"
+                    name="lugar"
+                    value="Passeio no lago">
+
+                <label for="lugar2">
+                    🌅 Passeio no lago
+                </label>
             </div>
+
+
             <div class="option-item">
-                <input type="radio" id="lugar3" name="lugar" value="Cafe ou melhor capuccino">
-                <label for="lugar3">☕ Cafe ou melhor capuccino</label>
+                <input
+                    type="radio"
+                    id="lugar3"
+                    name="lugar"
+                    value="Cafe ou melhor capuccino">
+
+                <label for="lugar3">
+                    ☕ Cafe ou melhor capuccino
+                </label>
             </div>
+
         </div>
+
 
         <div class="btn-container">
-            <button class="btn-verde" style="width: 140px;" onclick="finalizarEncontro()">Esse!!</button>
+
+            <button
+                class="btn-verde"
+                style="width: 140px;"
+                onclick="finalizarEncontro()">
+
+                Esse!!
+
+            </button>
+
         </div>
+
     </div>
 
-    <!-- TELA 3: Confirmação e Redirecionamento -->
+
+    <!-- PARTE 3 -->
     <div class="container escondido" id="card-sucesso">
-        <h2>Eba! Mal posso esperar! ❤️</h2>
+
+        <h2>
+            Eba! Mal posso esperar! ❤️
+        </h2>
+
         <p id="mensagem-final"></p>
-        <p style="font-size: 14px; color: #888; margin-top: 15px;">Redirecionando para o WhatsApp...</p>
+
+        <p style="font-size: 14px; color: #888; margin-top: 15px;">
+            Redirecionando para o WhatsApp...
+        </p>
+
     </div>
+
 
     <script>
-        // SUBSTITUA ABAIXO PELO SEU NÚMERO (Exemplo: '5511999999999')
-        const SEU_NUMERO_WHATSAPP = '5500000000000'; 
+
+        /* ==========================================
+           ELEMENTOS
+        ========================================== */
 
         const btnNao = document.getElementById('btn-nao');
+
         const cardConvite = document.getElementById('card-convite');
+
         const cardOpcoes = document.getElementById('card-opcoes');
+
         const cardSucesso = document.getElementById('card-sucesso');
+
         const mensagemFinal = document.getElementById('mensagem-final');
 
-        const frasesPersistentes = [
-            "Tem certeza?",
+        const tituloConvite = document.getElementById('titulo-convite');
+
+
+        /* ==========================================
+           FRASES DO BOTÃO NÃO
+        ========================================== */
+
+        const frasesNao = [
             "Da uma chance",
-            "Voce não vai se arrepender"
+            "Tem certeza?",
+            "Voce nao vai se arrepender"
         ];
 
-        // Lógica de Fuga Global Corrigida
+        let indiceFrase = 0;
+
+
+        /* ==========================================
+           BOTÃO NÃO FOGE
+        ========================================== */
+
         function fugirPelaTela() {
+
+            /*
+             * Transforma o botão em posição fixa
+             * para poder andar pela tela inteira.
+             */
             btnNao.style.position = 'fixed';
 
-            const larguraMax = window.innerWidth - btnNao.offsetWidth - 40;
-            const alturaMax = window.innerHeight - btnNao.offsetHeight - 40;
 
-            const novoX = Math.floor(Math.random() * larguraMax) + 20;
-            const novoY = Math.floor(Math.random() * alturaMax) + 20;
+            /*
+             * Limites da tela.
+             */
+            const larguraMax =
+                window.innerWidth -
+                btnNao.offsetWidth -
+                40;
 
+            const alturaMax =
+                window.innerHeight -
+                btnNao.offsetHeight -
+                40;
+
+
+            /*
+             * Escolhe uma posição aleatória.
+             */
+            const novoX =
+                Math.floor(Math.random() * larguraMax) + 20;
+
+            const novoY =
+                Math.floor(Math.random() * alturaMax) + 20;
+
+
+            /*
+             * Move o botão.
+             */
             btnNao.style.left = novoX + 'px';
+
             btnNao.style.top = novoY + 'px';
 
-            let fraseAleatoria;
-            do {
-                fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
-            } while (fraseAleatoria === btnNao.innerText);
 
-            btnNao.innerText = fraseAleatoria;
+            /*
+             * Troca o texto.
+             */
+            btnNao.innerText =
+                frasesNao[indiceFrase];
+
+
+            /*
+             * Vai para a próxima frase.
+             */
+            indiceFrase++;
+
+
+            /*
+             * Quando chegar na última,
+             * volta para a primeira.
+             */
+            if (indiceFrase >= frasesNao.length) {
+
+                indiceFrase = 0;
+
+            }
+
         }
 
-        // Troca da Tela 1 para a Tela 2
+
+        /* ==========================================
+           BOTÃO SIM
+        ========================================== */
+
         function irParaOpcoes() {
-            cardConvite.classList.add('escondido');
-            cardOpcoes.classList.remove('escondido');
+
+            /*
+             * Muda o título.
+             */
+            tituloConvite.innerText =
+                "Nossa achei que iria clicar no não Rs";
+
+
+            /*
+             * Esconde os botões.
+             */
+            const botoes =
+                cardConvite.querySelector('.btn-container');
+
+            botoes.classList.add('escondido');
+
+
+            /*
+             * Aguarda 2 segundos.
+             */
+            setTimeout(function() {
+
+                /*
+                 * Esconde o primeiro card.
+                 */
+                cardConvite.classList.add('escondido');
+
+
+                /*
+                 * Mostra as opções.
+                 */
+                cardOpcoes.classList.remove('escondido');
+
+            }, 2000);
+
         }
 
-        // Troca da Tela 2 para a Tela 3 (Sucesso)
+
+        /* ==========================================
+           FINALIZAR ENCONTRO
+        ========================================== */
+
         function finalizarEncontro() {
-            const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
-            
+
+            const lugarSelecionado =
+                document.querySelector(
+                    'input[name="lugar"]:checked'
+                ).value;
+
+
+            mensagemFinal.innerText =
+                "Então está decidido: " +
+                lugarSelecionado +
+                "! 🥰";
+
+
             cardOpcoes.classList.add('escondido');
+
             cardSucesso.classList.remove('escondido');
-            
+
+
+            /*
+             * Coloque seu número aqui.
+             *
+             * Exemplo:
+             * 5545999999999
+             */
+
+            const SEU_NUMERO_WHATSAPP =
+                '5500000000000';
+
+
+            /*
+             * Mensagem enviada para o WhatsApp.
+             */
+            const mensagem =
+                "Oi! Eu escolhi " +
+                lugarSelecionado +
+                " para nosso encontro 🥰❤️";
+
+
+            /*
+             * Cria o link do WhatsApp.
+             */
+            const linkWhatsApp =
+                "https://wa.me/" +
+                SEU_NUMERO_WHATSAPP +
+                "?text=" +
+                encodeURIComponent(mensagem);
+
+
+            /*
+             * Aguarda 2 segundos
+             * e abre o WhatsApp.
+             */
+            setTimeout(function() {
+
+                window.location.href =
+                    linkWhatsApp;
+
+            }, 2000);
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
+
+**Pronto, padrinho entregou o pacote completo. 😂❤️**
+
+Só tem **uma coisa importante** antes de colocar no GitHub: procure no código por:
+
+```javascript
+'5500000000000'
+```
+
+e troque pelo **seu número de WhatsApp com 55 + DDD + número**, sem espaços, `+`, parênteses ou hífen.
+
+O comportamento agora fica:
+
+**Quer sair comigo? 🌹**
+`[ SIM! ] [ NÃO ]`
+
+→ mouse chega no NÃO → **Da uma chance**
+→ mouse chega de novo → **Tem certeza?**
+→ mouse chega de novo → **Voce nao vai se arrepender**
+→ continua fugindo e alternando.
+
+Ao clicar no SIM:
+
+**"Nossa achei que iria clicar no não Rs"**
+
+→ espera 2 segundos → aparecem as opções do encontro.
