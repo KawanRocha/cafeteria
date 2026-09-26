@@ -10,12 +10,15 @@
     <style>
         * {
             box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
         }
 
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: 'Times New Roman', sans-serif;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             background-color: #1a0003;
             display: flex;
             justify-content: center;
@@ -35,7 +38,7 @@
         .elemento-fundo {
             position: absolute;
             bottom: -50px;
-            font-size: 25px;
+            font-size: 12px;
             animation: subir 8s linear infinite;
             opacity: 0.8;
         }
@@ -146,6 +149,9 @@
         h1 {
             color: #ff4d6d;
             margin-bottom: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .btn-container {
@@ -160,8 +166,8 @@
             border: none;
             border-radius: 10px;
             padding: 12px 20px;
-            font-size: 18px;
-            font-family: inherit;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
@@ -198,6 +204,8 @@
             border: 2px solid #ff4d6d;
             border-radius: 12px;
             cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             transition: 0.2s;
         }
 
@@ -226,7 +234,8 @@
 
         #mensagem-final {
             color: #ff4d6d;
-            font-size: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             font-weight: bold;
         }
     </style>
@@ -386,14 +395,14 @@
 
 
             /*
-             * Área onde o botão pode fugir.
+             * Área de movimentação.
              *
              * Quanto menores os valores,
              * mais perto do centro ele fica.
              */
 
-            const raioX = 250;
-            const raioY = 220;
+            const raioX = 100;
+            const raioY = 70;
 
 
             const card =
@@ -406,12 +415,10 @@
             let novoX;
             let novoY;
 
-            let posicaoValida = false;
-
 
             /*
-             * Tenta encontrar uma posição aleatória
-             * que não fique em cima do cartão.
+             * Procura uma posição aleatória
+             * que não fique sobre o cartão.
              */
 
             for (
@@ -442,17 +449,13 @@
 
 
                 if (!sobreCard) {
-
-                    posicaoValida = true;
-
                     break;
                 }
             }
 
 
             /*
-             * Impede o botão de sair
-             * completamente da tela.
+             * Mantém o botão dentro da tela.
              */
 
             novoX = Math.max(
@@ -476,10 +479,6 @@
                 )
             );
 
-
-            /*
-             * Aplica a nova posição.
-             */
 
             btnNao.style.left =
                 novoX + "px";
@@ -552,11 +551,6 @@
                 );
 
 
-            /*
-             * Se não escolheu nenhum lugar,
-             * avisa antes de continuar.
-             */
-
             if (!lugarSelecionado) {
 
                 alert(
@@ -588,10 +582,7 @@
 
 
             /*
-             * COLOQUE AQUI SEU NÚMERO
-             *
-             * Exemplo:
-             * 5545999999999
+             * Coloque aqui seu número do WhatsApp.
              */
 
             const SEU_NUMERO_WHATSAPP =
