@@ -236,22 +236,21 @@
             "Nem um cafezinho?"
         ];
 
-        // FUNÇÃO DE FUGA CORRIGIDA: Força o comportamento 'fixed' imediato e calcula o tamanho real da janela
+        // Lógica que faz o botão fugir mudando para posição fixa na tela toda na primeira interação
         function fugirPelaTela() {
             btnNao.style.position = 'fixed';
 
-            // Desconta o tamanho do botão para garantir que ele não suma além das bordas
+            // Garante margem para o botão não ultrapassar os cantos da tela do dispositivo
             const larguraMax = window.innerWidth - btnNao.offsetWidth - 40;
             const alturaMax = window.innerHeight - btnNao.offsetHeight - 40;
 
-            // Gera as posições aleatórias na tela toda
             const novoX = Math.floor(Math.random() * larguraMax) + 20;
             const novoY = Math.floor(Math.random() * alturaMax) + 20;
 
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
 
-            // Altera as frases aleatoriamente
+            // Sorteia as frases divertidas no botão
             let fraseAleatoria;
             do {
                 fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
@@ -266,3 +265,5 @@
         }
 
         function finalizarEncontro() {
+            const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
+            
