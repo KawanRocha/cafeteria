@@ -68,7 +68,6 @@
         h1 {
             color: #ff4d6d;
             margin-bottom: 20px;
-            font-size: 26px;
         }
 
         p {
@@ -77,29 +76,19 @@
         }
 
         .options-container {
-            margin: 25px 0;
+            margin: 20px 0;
             text-align: left;
         }
 
         .option-item {
-            margin: 12px 0;
-            font-size: 18px;
+            margin: 10px 0;
+            font-size: 16px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .option-item input {
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
         }
 
         .btn-container {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 20px;
             margin-top: 30px;
             height: 50px;
@@ -108,8 +97,9 @@
 
         /* Padronização de tamanho dos botões */
         button {
+            width: 110px;
             height: 45px;
-            font-size: 16px;
+            font-size: 18px;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -119,19 +109,16 @@
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            padding: 0 20px;
-            white-space: nowrap;
         }
 
-        /* Botões de Ação Positiva (SIM e ESSE!!) em Verde */
-        .btn-verde {
-            width: 120px;
+        /* Botão SIM em Verde */
+        #btn-sim {
             background-color: #2a9d8f;
             color: white;
             z-index: 11;
         }
 
-        .btn-verde:hover {
+        #btn-sim:hover {
             transform: scale(1.1);
         }
 
@@ -140,13 +127,14 @@
             background-color: #e63946;
             color: white;
             z-index: 12;
-            width: auto; /* Permite expandir levemente baseado no texto novo */
-            min-width: 110px;
         }
 
-        /* Classes de controle das etapas */
-        .escondido {
-            display: none !important;
+        .sucesso {
+            display: none;
+        }
+
+        .sucesso h2 {
+            color: #2a9d8f;
         }
 
         /* Chuva de cliques (Efeito de Sucesso) */
@@ -175,44 +163,35 @@
 
     <div class="fundo-animado" id="fundo-animado"></div>
 
-    <!-- PARTE 1: O Convite Inicial -->
-    <div class="container" id="card-convite">
+    <div class="container" id="card-principal">
         <h1>Quer sair comigo? 🌹</h1>
+        <p>Escolha um dos lugares abaixo para o nosso encontro:</p>
+        
+        <div class="options-container">
+            <div class="option-item">
+                <input type="radio" id="lugar1" name="lugar" value="Jantar num restaurante japonês" checked>
+                <label for="lugar1">🍣 Jantar japonês</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="lugar2" name="lugar" value="Ir ao cinema e comer pipoca">
+                <label for="lugar2">🎬 Cinema e pipoca</label>
+            </div>
+            <div class="option-item">
+                <input type="radio" id="lugar3" name="lugar" value="Tomar um café e comer um doce">
+                <label for="lugar3">☕ Café e um doce</label>
+            </div>
+        </div>
+
         <div class="btn-container">
-            <button class="btn-verde" id="btn-sim" onclick="irParaOpcoes()">SIM!</button>
+            <button id="btn-sim" onclick="aceitou()">SIM!</button>
             <button id="btn-nao" onmouseover="fugir()" onclick="fugir()">NÃO</button>
         </div>
     </div>
 
-    <!-- PARTE 2: Escolha do Lugar (Aparece após clicar no SIM) -->
-    <div class="container escondido" id="card-opcoes">
-        <h1>Sabia que iria aceitar, onde seria bom de irmos para vc? 🥰</h1>
-        
-        <div class="options-container">
-            <div class="option-item">
-                <input type="radio" id="lugar1" name="lugar" value="Cinema" checked>
-                <label for="lugar1">🎬 Cinema</label>
-            </div>
-            <div class="option-item">
-                <input type="radio" id="lugar2" name="lugar" value="Passeio no lago">
-                <label for="lugar2">🌅 Passeio no lago</label>
-            </div>
-            <div class="option-item">
-                <input type="radio" id="lugar3" name="lugar" value="Cafe ou melhor capuccino">
-                <label for="lugar3">☕ Cafe ou melhor capuccino</label>
-            </div>
-        </div>
-
-        <div class="btn-container">
-            <button class="btn-verde" style="width: 140px;" onclick="finalizarEncontro()">Esse!!</button>
-        </div>
-    </div>
-
-    <!-- PARTE 3: Tela de Sucesso e Redirecionamento -->
-    <div class="container escondido" id="card-sucesso">
-        <h2>Eba! Mal posso esperar! ❤️</h2>
+    <div class="container sucesso" id="card-sucesso">
+        <h2>Eba! Mal posso esperar! 🥰</h2>
         <p id="mensagem-final"></p>
-        <p style="font-size: 14px; color: #888; margin-top: 15px;">Redirecionando para o WhatsApp...</p>
+        <p style="font-size: 14px; color: #888;">Redirecionando para o WhatsApp...</p>
     </div>
 
     <script>
@@ -220,23 +199,12 @@
         const SEU_NUMERO_WHATSAPP = '5500000000000'; 
 
         const btnNao = document.getElementById('btn-nao');
-        const cardConvite = document.getElementById('card-convite');
-        const cardOpcoes = document.getElementById('card-opcoes');
+        const cardPrincipal = document.getElementById('card-principal');
         const cardSucesso = document.getElementById('card-sucesso');
         const mensagemFinal = document.getElementById('mensagem-final');
         const fundoAnimado = document.getElementById('fundo-animado');
 
-        // Lista de frases para alternar ao fugir
-        const frasesPersistentes = [
-            "Tem certeza?",
-            "Não quer considerar?",
-            "Dá uma chance?",
-            "Pensa com carinho...",
-            "Certeza absoluta?",
-            "Nem um cafezinho?"
-        ];
-
-        // Cria o papel de parede animado em loop (corações e rosas subindo)
+        // Cria o papel de parede com corações e rosas subindo continuamente
         const elementos = ['❤️', '🌹', '💖', '🌹', '💕'];
         for (let i = 0; i < 40; i++) {
             const el = document.createElement('div');
@@ -249,42 +217,31 @@
             fundoAnimado.appendChild(el);
         }
 
-        // Função de fuga do botão NÃO (Orbitando o centro) + Troca de Texto
+        // Nova função de fuga controlada perto do centro
         function fugir() {
+            // Pega o centro exato da tela atual
             const centroX = window.innerWidth / 2;
             const centroY = window.innerHeight / 2;
 
+            // Define um raio máximo de distância do centro (ex: 200px para os lados, 250px para cima/baixo)
+            // Isso força o botão a "orbitar" o quadrado branco sem nunca ir para os cantos da tela
             const limiteRaioX = 180;
             const limiteRaioY = 220;
 
+            // Gera uma nova coordenada restrita ao redor do centro
             const novoX = centroX + (Math.random() * (limiteRaioX * 2) - limiteRaioX) - (btnNao.offsetWidth / 2);
             const novoY = centroY + (Math.random() * (limiteRaioY * 2) - limiteRaioY) - (btnNao.offsetHeight / 2);
 
             btnNao.style.position = 'fixed';
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
-
-            // Escolhe uma frase aleatória diferente do texto atual do botão
-            let fraseAleatoria;
-            do {
-                fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
-            } while (fraseAleatoria === btnNao.innerText);
-
-            btnNao.innerText = fraseAleatoria;
         }
 
-        // Avança para a segunda etapa (Escolha de locais)
-        function irParaOpcoes() {
-            cardConvite.classList.add('escondido');
-            cardOpcoes.classList.remove('escondido');
-        }
-
-        // Finaliza, gera a chuva de corações e prepara o WhatsApp
-        function finalizarEncontro() {
+        function aceitou() {
             const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
             
-            cardOpcoes.classList.add('escondido');
-            cardSucesso.classList.remove('escondido');
+            cardPrincipal.style.display = 'none';
+            cardSucesso.style.display = 'block';
             
             mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}.`;
 
@@ -301,3 +258,22 @@
                     coracao.style.left = Math.random() * 100 + 'vw';
                     coracao.style.fontSize = Math.random() * 20 + 20 + 'px';
                     coracao.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+                    document.body.appendChild(coracao);
+
+                    setTimeout(() => { coracao.remove(); }, 3000);
+                }, i * 80);
+            }
+        }
+
+        function enviarWhatsApp(local) {
+            const textoMensagem = `Oi! Eu aceitei o seu convite! 🥰 Nosso encontro está confirmado para: ${local}.`;
+            const mensagemFormatada = encodeURIComponent(textoMensagem);
+            const urlWhatsApp = `https://wa.me{SEU_NUMERO_WHATSAPP}?text=${mensagemFormatada}`;
+
+            setTimeout(() => {
+                window.location.href = urlWhatsApp;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
