@@ -104,7 +104,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
-            transition: transform 0.1s;
+            transition: all 0.2s ease;
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -217,14 +217,20 @@
             fundoAnimado.appendChild(el);
         }
 
-        // Função que faz o botão fugir aleatoriamente, mas respeitando os limites da tela visível
+        // Nova função de fuga controlada perto do centro
         function fugir() {
-            const larguraJanela = window.innerWidth - btnNao.offsetWidth;
-            const alturaJanela = window.innerHeight - btnNao.offsetHeight;
+            // Pega o centro exato da tela atual
+            const centroX = window.innerWidth / 2;
+            const centroY = window.innerHeight / 2;
 
-            // Gera posições totalmente aleatórias dentro da janela visível
-            const novoX = Math.floor(Math.random() * larguraJanela);
-            const novoY = Math.floor(Math.random() * alturaJanela);
+            // Define um raio máximo de distância do centro (ex: 200px para os lados, 250px para cima/baixo)
+            // Isso força o botão a "orbitar" o quadrado branco sem nunca ir para os cantos da tela
+            const limiteRaioX = 180;
+            const limiteRaioY = 220;
+
+            // Gera uma nova coordenada restrita ao redor do centro
+            const novoX = centroX + (Math.random() * (limiteRaioX * 2) - limiteRaioX) - (btnNao.offsetWidth / 2);
+            const novoY = centroY + (Math.random() * (limiteRaioY * 2) - limiteRaioY) - (btnNao.offsetHeight / 2);
 
             btnNao.style.position = 'fixed';
             btnNao.style.left = novoX + 'px';
