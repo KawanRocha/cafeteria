@@ -1,12 +1,16 @@
-```html
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Quer sair comigo?</title>
+
 
     <style>
 
@@ -15,14 +19,19 @@
         ========================================== */
 
         body {
+
             font-family: Arial, sans-serif;
+
             background: #1a0003;
 
             display: flex;
+
             justify-content: center;
+
             align-items: center;
 
             height: 100vh;
+
             margin: 0;
 
             overflow: hidden;
@@ -30,6 +39,7 @@
             text-align: center;
 
             position: relative;
+
         }
 
 
@@ -38,6 +48,7 @@
         ========================================== */
 
         .fundo-animado {
+
             position: absolute;
 
             top: 0;
@@ -51,10 +62,12 @@
             z-index: 1;
 
             pointer-events: none;
+
         }
 
 
         .elemento-fundo {
+
             position: absolute;
 
             bottom: -60px;
@@ -62,12 +75,14 @@
             font-size: 26px;
 
             text-shadow:
-                0 0 10px rgba(255, 77, 109, 0.4);
+                0 0 10px
+                rgba(255, 77, 109, 0.4);
 
             animation:
                 subirFundo linear infinite;
 
             user-select: none;
+
         }
 
 
@@ -75,7 +90,6 @@
             left: 5%;
             font-size: 32px;
             animation-duration: 5s;
-            animation-delay: 0s;
         }
 
         .elemento-fundo:nth-child(2) {
@@ -166,33 +180,42 @@
         @keyframes subirFundo {
 
             0% {
+
                 transform:
                     translateY(0)
                     rotate(0deg);
 
                 opacity: 0;
+
             }
 
             15% {
+
                 opacity: 0.85;
+
             }
 
             85% {
+
                 opacity: 0.85;
+
             }
 
             100% {
+
                 transform:
                     translateY(-115vh)
                     rotate(360deg);
 
                 opacity: 0;
+
             }
+
         }
 
 
         /* ==========================================
-           CARD BRANCO
+           CARD
         ========================================== */
 
         .container {
@@ -221,11 +244,14 @@
             backdrop-filter: blur(5px);
 
             box-sizing: border-box;
+
         }
 
 
         #card-opcoes {
+
             min-height: 340px;
+
         }
 
 
@@ -237,6 +263,7 @@
                 0 0 25px 0;
 
             font-size: 26px;
+
         }
 
 
@@ -249,6 +276,7 @@
             margin: 25px 0;
 
             text-align: left;
+
         }
 
 
@@ -265,6 +293,7 @@
             align-items: center;
 
             gap: 10px;
+
         }
 
 
@@ -274,6 +303,7 @@
 
             width: 18px;
             height: 18px;
+
         }
 
 
@@ -294,6 +324,7 @@
             margin-top: 20px;
 
             height: 50px;
+
         }
 
 
@@ -322,11 +353,12 @@
             padding: 0 25px;
 
             white-space: nowrap;
+
         }
 
 
         /* ==========================================
-           SIM
+           BOTÃO SIM
         ========================================== */
 
         .btn-verde {
@@ -341,6 +373,7 @@
 
             transition:
                 transform 0.1s ease;
+
         }
 
 
@@ -348,11 +381,12 @@
 
             transform:
                 scale(1.1);
+
         }
 
 
         /* ==========================================
-           NÃO
+           BOTÃO NÃO
         ========================================== */
 
         #btn-nao {
@@ -368,6 +402,7 @@
             transition:
                 left 0.15s ease,
                 top 0.15s ease;
+
         }
 
 
@@ -378,6 +413,7 @@
         .escondido {
 
             display: none !important;
+
         }
 
 
@@ -399,6 +435,7 @@
 
             animation:
                 cair linear forwards;
+
         }
 
 
@@ -411,6 +448,7 @@
                     rotate(0deg);
 
                 opacity: 1;
+
             }
 
             100% {
@@ -420,7 +458,9 @@
                     rotate(360deg);
 
                 opacity: 0;
+
             }
+
         }
 
     </style>
@@ -438,17 +478,29 @@
     <div class="fundo-animado">
 
         <div class="elemento-fundo">❤️</div>
+
         <div class="elemento-fundo">🌹</div>
+
         <div class="elemento-fundo">💖</div>
+
         <div class="elemento-fundo">🌹</div>
+
         <div class="elemento-fundo">💕</div>
+
         <div class="elemento-fundo">❤️</div>
+
         <div class="elemento-fundo">🌹</div>
+
         <div class="elemento-fundo">💖</div>
+
         <div class="elemento-fundo">🌹</div>
+
         <div class="elemento-fundo">💕</div>
+
         <div class="elemento-fundo">❤️</div>
+
         <div class="elemento-fundo">🌹</div>
+
         <div class="elemento-fundo">💖</div>
 
     </div>
@@ -471,6 +523,7 @@
 
         <div class="btn-container">
 
+
             <button
                 class="btn-verde"
                 id="btn-sim"
@@ -489,6 +542,7 @@
 
             </button>
 
+
         </div>
 
     </div>
@@ -501,6 +555,7 @@
     <div
         class="container escondido"
         id="card-opcoes">
+
 
         <h1>
 
@@ -592,6 +647,7 @@
         class="container escondido"
         id="card-sucesso">
 
+
         <h2>
 
             Eba! Mal posso esperar! ❤️
@@ -619,43 +675,44 @@
 
     <script>
 
+
         /* ==========================================
            ELEMENTOS
         ========================================== */
 
         const btnNao =
             document.getElementById(
-                'btn-nao'
+                "btn-nao"
             );
 
 
         const cardConvite =
             document.getElementById(
-                'card-convite'
+                "card-convite"
             );
 
 
         const cardOpcoes =
             document.getElementById(
-                'card-opcoes'
+                "card-opcoes"
             );
 
 
         const cardSucesso =
             document.getElementById(
-                'card-sucesso'
+                "card-sucesso"
             );
 
 
         const mensagemFinal =
             document.getElementById(
-                'mensagem-final'
+                "mensagem-final"
             );
 
 
         const tituloConvite =
             document.getElementById(
-                'titulo-convite'
+                "titulo-convite"
             );
 
 
@@ -680,28 +737,26 @@
         /* ==========================================
            FUNÇÃO DO BOTÃO NÃO
            
-           O BOTÃO FICA SOMENTE EM UMA
-           PEQUENA ÁREA AO REDOR DO CARD.
+           MOVIMENTO ALEATÓRIO CONTROLADO
+           PRÓXIMO AO CENTRO
         ========================================== */
 
         function fugirPelaTela() {
 
-            /*
-             * Transforma o botão em posição fixa.
-             */
-            btnNao.style.position = "fixed";
-
 
             /*
-             * Pega a posição do card.
+             * Faz o botão poder ser
+             * posicionado livremente.
              */
-            const card =
-                cardConvite.getBoundingClientRect();
+
+            btnNao.style.position =
+                "fixed";
 
 
             /*
-             * Mede o botão.
+             * Pega o tamanho do botão.
              */
+
             const larguraBotao =
                 btnNao.offsetWidth;
 
@@ -710,289 +765,251 @@
 
 
             /*
-             * DISTÂNCIA DO CARD.
+             * ======================================
+             * CENTRO DA TELA
+             * ======================================
+             */
+
+            const centroX =
+                window.innerWidth / 2;
+
+            const centroY =
+                window.innerHeight / 2;
+
+
+            /*
+             * ======================================
+             * ÁREA DE FUGA
+             * ======================================
              *
-             * Apenas 6 pixels.
-             */
-            const distancia = 6;
-
-
-            /*
-             * ÁREA DE MOVIMENTO.
+             * O botão poderá ficar somente
+             * dentro desta região próxima
+             * ao centro da tela.
              *
-             * Apenas 18 pixels de variação.
-             *
-             * Isso impede o botão de ficar
-             * passeando pela tela.
+             * Pode aumentar ou diminuir esses
+             * valores depois.
              */
-            const variacao = 18;
+
+            const raioX = 180;
+
+            const raioY = 130;
 
 
             /*
-             * Lista dos lados possíveis.
+             * Sorteia uma posição dentro
+             * da área próxima ao centro.
              */
-            const ladosPossiveis = [];
+
+            let novoX =
+                centroX -
+                larguraBotao / 2 +
+                (Math.random() * 2 - 1) *
+                raioX;
+
+
+            let novoY =
+                centroY -
+                alturaBotao / 2 +
+                (Math.random() * 2 - 1) *
+                raioY;
 
 
             /*
-             * =====================================
-             * VERIFICA CIMA
-             * =====================================
+             * ======================================
+             * NÃO DEIXAR O BOTÃO FICAR EM CIMA
+             * DO QUADRADO BRANCO
+             * ======================================
              */
 
-            if (
-                card.top -
-                alturaBotao -
-                distancia >= 5
-            ) {
-
-                ladosPossiveis.push(
-                    "cima"
-                );
-
-            }
+            const card =
+                cardConvite.getBoundingClientRect();
 
 
             /*
-             * =====================================
-             * VERIFICA BAIXO
-             * =====================================
+             * Área de segurança ao redor
+             * do quadrado branco.
              */
 
-            if (
-                card.bottom +
-                alturaBotao +
-                distancia <=
-                window.innerHeight - 5
-            ) {
-
-                ladosPossiveis.push(
-                    "baixo"
-                );
-
-            }
+            const margem = 15;
 
 
             /*
-             * =====================================
-             * VERIFICA ESQUERDA
-             * =====================================
+             * Verifica se o botão sorteado
+             * ficou sobre o card.
              */
 
-            if (
-                card.left -
-                larguraBotao -
-                distancia >= 5
-            ) {
+            const sobreCard = (
 
-                ladosPossiveis.push(
-                    "esquerda"
-                );
+                novoX <
+                card.right + margem
 
-            }
+                &&
+
+                novoX + larguraBotao >
+                card.left - margem
+
+                &&
+
+                novoY <
+                card.bottom + margem
+
+                &&
+
+                novoY + alturaBotao >
+                card.top - margem
+
+            );
 
 
             /*
-             * =====================================
-             * VERIFICA DIREITA
-             * =====================================
+             * Se ficou sobre o card,
+             * tenta outra posição.
              */
 
-            if (
-                card.right +
-                larguraBotao +
-                distancia <=
-                window.innerWidth - 5
-            ) {
+            if (sobreCard) {
 
-                ladosPossiveis.push(
-                    "direita"
-                );
-
-            }
-
-
-            /*
-             * Se nenhum lado estiver disponível,
-             * não faz nada.
-             */
-            if (
-                ladosPossiveis.length === 0
-            ) {
-
-                return;
-
-            }
-
-
-            /*
-             * Escolhe um lado aleatório.
-             */
-            const lado =
-                ladosPossiveis[
+                const lado =
                     Math.floor(
-                        Math.random() *
-                        ladosPossiveis.length
-                    )
-                ];
+                        Math.random() * 4
+                    );
 
 
-            let novoX;
-            let novoY;
+                /*
+                 * ACIMA
+                 */
+
+                if (lado === 0) {
+
+                    novoX =
+                        centroX -
+                        larguraBotao / 2 +
+                        (
+                            Math.random() * 2 - 1
+                        ) * 120;
 
 
-            /*
-             * =====================================
-             * CIMA
-             * =====================================
-             */
+                    novoY =
+                        card.top -
+                        alturaBotao -
+                        margem;
 
-            if (
-                lado === "cima"
-            ) {
-
-                novoX =
-                    card.left +
-                    (card.width -
-                    larguraBotao) / 2 +
-                    (
-                        Math.random() * 2 - 1
-                    ) * variacao;
+                }
 
 
-                novoY =
-                    card.top -
-                    alturaBotao -
-                    distancia;
+                /*
+                 * ABAIXO
+                 */
 
-            }
+                else if (lado === 1) {
 
-
-            /*
-             * =====================================
-             * BAIXO
-             * =====================================
-             */
-
-            else if (
-                lado === "baixo"
-            ) {
-
-                novoX =
-                    card.left +
-                    (card.width -
-                    larguraBotao) / 2 +
-                    (
-                        Math.random() * 2 - 1
-                    ) * variacao;
+                    novoX =
+                        centroX -
+                        larguraBotao / 2 +
+                        (
+                            Math.random() * 2 - 1
+                        ) * 120;
 
 
-                novoY =
-                    card.bottom +
-                    distancia;
+                    novoY =
+                        card.bottom +
+                        margem;
 
-            }
-
-
-            /*
-             * =====================================
-             * ESQUERDA
-             * =====================================
-             */
-
-            else if (
-                lado === "esquerda"
-            ) {
-
-                novoX =
-                    card.left -
-                    larguraBotao -
-                    distancia;
+                }
 
 
-                novoY =
-                    card.top +
-                    (card.height -
-                    alturaBotao) / 2 +
-                    (
-                        Math.random() * 2 - 1
-                    ) * variacao;
+                /*
+                 * ESQUERDA
+                 */
 
-            }
+                else if (lado === 2) {
 
-
-            /*
-             * =====================================
-             * DIREITA
-             * =====================================
-             */
-
-            else {
-
-                novoX =
-                    card.right +
-                    distancia;
+                    novoX =
+                        card.left -
+                        larguraBotao -
+                        margem;
 
 
-                novoY =
-                    card.top +
-                    (card.height -
-                    alturaBotao) / 2 +
-                    (
-                        Math.random() * 2 - 1
-                    ) * variacao;
+                    novoY =
+                        centroY -
+                        alturaBotao / 2 +
+                        (
+                            Math.random() * 2 - 1
+                        ) * 80;
+
+                }
+
+
+                /*
+                 * DIREITA
+                 */
+
+                else {
+
+                    novoX =
+                        card.right +
+                        margem;
+
+
+                    novoY =
+                        centroY -
+                        alturaBotao / 2 +
+                        (
+                            Math.random() * 2 - 1
+                        ) * 80;
+
+                }
 
             }
 
 
             /*
-             * =====================================
+             * ======================================
              * LIMITES DA TELA
-             * =====================================
-             *
-             * Mesmo se o card estiver próximo
-             * de uma borda, o botão não sai.
+             * ======================================
              */
 
             novoX =
                 Math.max(
-                    5,
+                    10,
                     Math.min(
                         novoX,
                         window.innerWidth -
                         larguraBotao -
-                        5
+                        10
                     )
                 );
 
 
             novoY =
                 Math.max(
-                    5,
+                    10,
                     Math.min(
                         novoY,
                         window.innerHeight -
                         alturaBotao -
-                        5
+                        10
                     )
                 );
 
 
             /*
-             * Aplica a posição.
+             * ======================================
+             * MOVE O BOTÃO
+             * ======================================
              */
 
             btnNao.style.left =
                 novoX + "px";
+
 
             btnNao.style.top =
                 novoY + "px";
 
 
             /*
-             * =====================================
+             * ======================================
              * MUDA A FRASE
-             * =====================================
+             * ======================================
              */
 
             btnNao.innerText =
@@ -1001,16 +1018,8 @@
                 ];
 
 
-            /*
-             * Próxima frase.
-             */
-
             indiceFrase++;
 
-
-            /*
-             * Volta para a primeira frase.
-             */
 
             if (
                 indiceFrase >=
@@ -1025,14 +1034,16 @@
 
 
         /* ==========================================
-           CLIQUE NO SIM
+           SIM
         ========================================== */
 
         function irParaOpcoes() {
 
+
             /*
-             * Altera o título.
+             * Muda o título.
              */
+
             tituloConvite.innerText =
                 "Nossa achei que iria clicar no não Rs";
 
@@ -1040,6 +1051,7 @@
             /*
              * Esconde os botões.
              */
+
             const botoes =
                 cardConvite.querySelector(
                     ".btn-container"
@@ -1052,8 +1064,9 @@
 
 
             /*
-             * Espera 2 segundos.
+             * Espera dois segundos.
              */
+
             setTimeout(
                 function() {
 
@@ -1074,32 +1087,24 @@
 
 
         /* ==========================================
-           FINALIZAR ENCONTRO
+           FINALIZAR
         ========================================== */
 
         function finalizarEncontro() {
 
-            /*
-             * Descobre o lugar escolhido.
-             */
+
             const lugarSelecionado =
                 document.querySelector(
                     'input[name="lugar"]:checked'
                 ).value;
 
 
-            /*
-             * Mostra a mensagem.
-             */
             mensagemFinal.innerText =
                 "Então está decidido: " +
                 lugarSelecionado +
                 "! 🥰";
 
 
-            /*
-             * Troca os cards.
-             */
             cardOpcoes.classList.add(
                 "escondido"
             );
@@ -1111,35 +1116,19 @@
 
 
             /*
-             * =====================================
-             * WHATSAPP
-             * =====================================
-             *
-             * Coloque seu número aqui:
-             *
-             * 55 + DDD + número
-             *
-             * Exemplo:
-             *
-             * 5545999999999
+             * COLOQUE SEU WHATSAPP AQUI
              */
 
             const SEU_NUMERO_WHATSAPP =
                 "5500000000000";
 
 
-            /*
-             * Mensagem do WhatsApp.
-             */
             const mensagem =
                 "Oi! Eu escolhi " +
                 lugarSelecionado +
                 " para nosso encontro 🥰❤️";
 
 
-            /*
-             * Cria o link.
-             */
             const linkWhatsApp =
                 "https://wa.me/" +
                 SEU_NUMERO_WHATSAPP +
@@ -1149,9 +1138,6 @@
                 );
 
 
-            /*
-             * Redireciona depois de 2 segundos.
-             */
             setTimeout(
                 function() {
 
