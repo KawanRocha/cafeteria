@@ -69,8 +69,9 @@
             transition: transform 0.1s;
         }
 
+        /* Botão SIM configurado para Verde */
         #btn-sim {
-            background-color: #ff4d6d;
+            background-color: #2a9d8f;
             color: white;
         }
 
@@ -78,8 +79,9 @@
             transform: scale(1.1);
         }
 
+        /* Botão NÃO configurado para Vermelho */
         #btn-nao {
-            background-color: #7a7a7a;
+            background-color: #e63946;
             color: white;
             position: absolute;
             right: 50px;
@@ -178,12 +180,10 @@
             
             mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}.`;
 
-            // Ativa os efeitos extras
             criarChuvaDeCoracoes();
             enviarWhatsApp(localSelecionado);
         }
 
-        // Função que cria o efeito visual dos corações caindo
         function criarChuvaDeCoracoes() {
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
@@ -191,15 +191,12 @@
                     coracao.classList.add('coracao');
                     coracao.innerText = '❤️';
                     
-                    // Posição horizontal aleatória
                     coracao.style.left = Math.random() * 100 + 'vw';
-                    // Tamanhos e velocidades variadas para efeito dinâmico
                     coracao.style.fontSize = Math.random() * 20 + 15 + 'px';
                     coracao.style.animationDuration = Math.random() * 2 + 2 + 's';
                     
                     document.body.appendChild(coracao);
 
-                    // Remove o elemento após o fim da animação
                     setTimeout(() => {
                         coracao.remove();
                     }, 4000);
@@ -207,13 +204,11 @@
             }
         }
 
-        // Função que monta o link e envia para o WhatsApp
         function enviarWhatsApp(local) {
             const textoMensagem = `Oi! Eu aceitei o seu convite! 🥰 Nosso encontro está confirmado para: ${local}.`;
             const mensagemFormatada = encodeURIComponent(textoMensagem);
             const urlWhatsApp = `https://wa.me{SEU_NUMERO_WHATSAPP}?text=${mensagemFormatada}`;
 
-            // Redireciona após 2.5 segundos para a pessoa conseguir ver o balão e os corações
             setTimeout(() => {
                 window.location.href = urlWhatsApp;
             }, 2500);
