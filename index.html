@@ -76,7 +76,7 @@
             box-sizing: border-box;
         }
 
-        /* Ajuste de altura para caber o bloco de opções */
+        /* Ajuste de altura para caber o bloco de opções na Etapa 2 */
         #card-opcoes {
             min-height: 340px;
         }
@@ -176,7 +176,7 @@
 </head>
 <body>
 
-    <!-- Papel de Parede -->
+    <!-- Papel de Parede Animado -->
     <div class="fundo-animado">
         <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div> <div class="elemento-fundo">🌹</div>
@@ -196,9 +196,10 @@
         </div>
     </div>
 
-    <!-- PARTE 2: Escolha do Lugar (Aparece após o clique em SIM!) -->
+    <!-- PARTE 2: Escolha do Lugar (Título Atualizado) -->
     <div class="container escondido" id="card-opcoes">
-        <h1>Sabia que iria aceitar, onde seria bom de irmos para vc? 🥰</h1>
+        <h1>Nossa achava que vc iria clicar no não rs 😜</h1>
+        <p style="font-size: 16px; color: #666; margin-top: -15px;">Mas já que aceitou, escolha para onde vamos:</p>
         
         <div class="options-container">
             <div class="option-item">
@@ -265,10 +266,6 @@
             btnNao.innerText = fraseAleatoria;
         }
 
-        // Função do clique no "SIM!": Esconde o convite e mostra a tela de opções
+        // Função do clique no "SIM!": Esconde o convite inicial e exibe a tela de opções com o novo título
         function irParaOpcoes() {
             cardConvite.classList.add('escondido');
-            cardOpcoes.classList.remove('escondido');
-        }
-
-        // Função do clique em "Esse!!": Esconde as opções e vai para o sucesso
