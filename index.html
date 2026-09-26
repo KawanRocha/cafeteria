@@ -115,16 +115,18 @@
         #btn-sim {
             background-color: #2a9d8f;
             color: white;
+            z-index: 11;
         }
 
         #btn-sim:hover {
             transform: scale(1.1);
         }
 
-        /* Botão NÃO em Vermelho (Estilo inicial normal) */
+        /* Botão NÃO em Vermelho */
         #btn-nao {
             background-color: #e63946;
             color: white;
+            z-index: 12;
         }
 
         .sucesso {
@@ -193,7 +195,7 @@
     </div>
 
     <script>
-        // SEU NÚMERO DE WHATSAPP AQUI (Apenas números, com o DDD da sua região)
+        // SEU NÚMERO DE WHATSAPP AQUI (Apenas números com DDD)
         const SEU_NUMERO_WHATSAPP = '5500000000000'; 
 
         const btnNao = document.getElementById('btn-nao');
@@ -215,11 +217,12 @@
             fundoAnimado.appendChild(el);
         }
 
-        // Função corrigida: o botão só ganha comportamento 'fixed' ao tentar interagir
+        // Função que faz o botão fugir aleatoriamente, mas respeitando os limites da tela visível
         function fugir() {
             const larguraJanela = window.innerWidth - btnNao.offsetWidth;
             const alturaJanela = window.innerHeight - btnNao.offsetHeight;
 
+            // Gera posições totalmente aleatórias dentro da janela visível
             const novoX = Math.floor(Math.random() * larguraJanela);
             const novoY = Math.floor(Math.random() * alturaJanela);
 
