@@ -18,7 +18,7 @@
             position: relative;
         }
 
-        /* Camada do Papel de Parede Animado com Corações e Rosas */
+        /* Papel de Parede de Corações e Rosas em CSS Puro */
         .fundo-animado {
             position: absolute;
             top: 0;
@@ -39,7 +39,6 @@
             user-select: none;
         }
 
-        /* Distribuição de trajetórias fixas para cobrir a tela */
         .elemento-fundo:nth-child(1) { left: 5%; font-size: 32px; animation-duration: 5s; animation-delay: 0s; }
         .elemento-fundo:nth-child(2) { left: 12%; font-size: 22px; animation-duration: 7s; animation-delay: 2s; }
         .elemento-fundo:nth-child(3) { left: 20%; font-size: 28px; animation-duration: 6s; animation-delay: 1s; }
@@ -61,7 +60,7 @@
             100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Card Principal */
+        /* Estrutura dos Quadros Brancos */
         .container {
             background-color: rgba(255, 255, 255, 0.96);
             padding: 35px 30px;
@@ -76,7 +75,6 @@
             box-sizing: border-box;
         }
 
-        /* Ajuste de altura para caber o bloco de opções na Etapa 2 */
         #card-opcoes {
             min-height: 340px;
         }
@@ -107,7 +105,6 @@
             height: 18px;
         }
 
-        /* Mantém os botões da Parte 1 lado a lado */
         .btn-container {
             display: flex;
             justify-content: center;
@@ -132,7 +129,6 @@
             white-space: nowrap;
         }
 
-        /* Botão Verde */
         .btn-verde {
             width: 120px;
             background-color: #2a9d8f;
@@ -145,20 +141,18 @@
             transform: scale(1.1);
         }
 
-        /* Botão NÃO em Vermelho */
         #btn-nao {
             background-color: #e63946;
             color: white;
             z-index: 12;
             min-width: 110px;
-            transition: none;
         }
 
         .escondido {
             display: none !important;
         }
 
-        /* Chuva de cliques (Efeito de Sucesso) */
+        /* Explosão Final de Corações */
         .coracao-clique {
             position: absolute;
             color: #ff4d6d;
@@ -176,7 +170,6 @@
 </head>
 <body>
 
-    <!-- Papel de Parede Animado -->
     <div class="fundo-animado">
         <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div> <div class="elemento-fundo">🌹</div>
@@ -187,7 +180,7 @@
         <div class="elemento-fundo">💖</div>
     </div>
 
-    <!-- PARTE 1: O Convite Inicial (Botões lado a lado) -->
+    <!-- TELA 1: Pergunta inicial -->
     <div class="container" id="card-convite">
         <h1>Quer sair comigo? 🌹</h1>
         <div class="btn-container">
@@ -196,7 +189,7 @@
         </div>
     </div>
 
-    <!-- PARTE 2: Escolha do Lugar (Título Atualizado) -->
+    <!-- TELA 2: Opções de lugares (Aparece após o SIM) -->
     <div class="container escondido" id="card-opcoes">
         <h1>Nossa achava que vc iria clicar no não rs 😜</h1>
         <p style="font-size: 16px; color: #666; margin-top: -15px;">Mas já que aceitou, escolha para onde vamos:</p>
@@ -221,7 +214,7 @@
         </div>
     </div>
 
-    <!-- PARTE 3: Tela final de Confirmação (Sucesso) -->
+    <!-- TELA 3: Confirmação e Redirecionamento -->
     <div class="container escondido" id="card-sucesso">
         <h2>Eba! Mal posso esperar! ❤️</h2>
         <p id="mensagem-final"></p>
@@ -229,7 +222,7 @@
     </div>
 
     <script>
-        // COLOQUE SEU NÚMERO DE WHATSAPP AQUI (Apenas números com DDD)
+        // SUBSTITUA ABAIXO PELO SEU NÚMERO (Exemplo: '5511999999999')
         const SEU_NUMERO_WHATSAPP = '5500000000000'; 
 
         const btnNao = document.getElementById('btn-nao');
@@ -238,14 +231,13 @@
         const cardSucesso = document.getElementById('card-sucesso');
         const mensagemFinal = document.getElementById('mensagem-final');
 
-        // Frases que se alternam no botão NÃO
         const frasesPersistentes = [
             "Tem certeza?",
             "Da uma chance",
             "Voce não vai se arrepender"
         ];
 
-        // LÓGICA DE FUGA GLOBAL
+        // Lógica de Fuga Global Corrigida
         function fugirPelaTela() {
             btnNao.style.position = 'fixed';
 
@@ -266,6 +258,16 @@
             btnNao.innerText = fraseAleatoria;
         }
 
-        // Função do clique no "SIM!": Esconde o convite inicial e exibe a tela de opções com o novo título
+        // Troca da Tela 1 para a Tela 2
         function irParaOpcoes() {
             cardConvite.classList.add('escondido');
+            cardOpcoes.classList.remove('escondido');
+        }
+
+        // Troca da Tela 2 para a Tela 3 (Sucesso)
+        function finalizarEncontro() {
+            const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
+            
+            cardOpcoes.classList.add('escondido');
+            cardSucesso.classList.remove('escondido');
+            
