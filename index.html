@@ -12,13 +12,11 @@
 
     <title>Quer sair comigo?</title>
 
-
     <style>
 
         * {
             box-sizing: border-box;
         }
-
 
         body {
 
@@ -38,7 +36,6 @@
 
             overflow: hidden;
         }
-
 
 
         /* =========================================
@@ -142,38 +139,24 @@
         @keyframes subir {
 
             0% {
-
-                transform:
-                    translateY(0)
-                    rotate(0deg);
-
+                transform: translateY(0) rotate(0deg);
                 opacity: 0;
             }
 
-
             10% {
-
                 opacity: 0.8;
             }
-
 
             90% {
-
                 opacity: 0.8;
             }
 
-
             100% {
-
-                transform:
-                    translateY(-110vh)
-                    rotate(360deg);
-
+                transform: translateY(-110vh) rotate(360deg);
                 opacity: 0;
             }
 
         }
-
 
 
         /* =========================================
@@ -198,9 +181,8 @@
         }
 
 
-
         /* =========================================
-           EMOJI SEMPRE POR CIMA DO CARTÃO
+           EMOJI SEMPRE EM CIMA DO CARTÃO
         ========================================= */
 
         .emoji-personagem {
@@ -215,8 +197,7 @@
 
             top: 0;
 
-            transform:
-                translate(-50%, -98%);
+            transform: translate(-50%, -82%);
 
             z-index: 100;
 
@@ -226,9 +207,8 @@
         }
 
 
-
         /* =========================================
-           CARTÕES
+           CARTÃO
         ========================================= */
 
         .container {
@@ -241,32 +221,14 @@
 
             padding: 30px;
 
-            background:
-                rgba(
-                    255,
-                    255,
-                    255,
-                    0.95
-                );
+            background: rgba(255, 255, 255, 0.95);
 
             border-radius: 20px;
 
             text-align: center;
 
             box-shadow:
-                0 10px 40px
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.4
-                );
-        }
-
-
-        #card-opcoes {
-
-            min-height: 340px;
+                0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
 
@@ -276,7 +238,6 @@
 
             margin-bottom: 30px;
         }
-
 
 
         /* =========================================
@@ -311,8 +272,7 @@
 
             cursor: pointer;
 
-            transition:
-                transform 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
 
@@ -356,9 +316,8 @@
         }
 
 
-
         /* =========================================
-           OPÇÕES
+           OPÇÕES DE LOCAL
         ========================================= */
 
         .opcao {
@@ -369,8 +328,7 @@
 
             padding: 15px;
 
-            border:
-                2px solid #ff4d6d;
+            border: 2px solid #ff4d6d;
 
             border-radius: 12px;
 
@@ -392,7 +350,52 @@
         }
 
 
-        .btn-finalizar {
+        /* =========================================
+           CALENDÁRIO
+        ========================================= */
+
+        .texto-data {
+
+            color: #555;
+
+            font-size: 16px;
+
+            margin-bottom: 20px;
+        }
+
+
+        #data-encontro {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 2px solid #ff4d6d;
+
+            border-radius: 12px;
+
+            font-size: 18px;
+
+            font-family: Arial, sans-serif;
+
+            outline: none;
+
+            cursor: pointer;
+
+            background-color: white;
+        }
+
+
+        #data-encontro:focus {
+
+            border-color: #e63946;
+
+            box-shadow:
+                0 0 5px rgba(255, 77, 109, 0.3);
+        }
+
+
+        .btn-confirmar {
 
             margin-top: 20px;
 
@@ -404,11 +407,48 @@
         }
 
 
-        .btn-finalizar:hover {
+        .btn-confirmar:hover {
 
             transform: scale(1.03);
         }
 
+
+        /* =========================================
+           RESUMO
+        ========================================= */
+
+        .resumo {
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background-color: #ffe5eb;
+
+            color: #555;
+
+            font-size: 17px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           FINAL
+        ========================================= */
+
+        #mensagem-final {
+
+            color: #ff4d6d;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            line-height: 1.5;
+        }
 
 
         /* =========================================
@@ -419,22 +459,6 @@
 
             display: none !important;
         }
-
-
-
-        /* =========================================
-           MENSAGEM FINAL
-        ========================================= */
-
-        #mensagem-final {
-
-            color: #ff4d6d;
-
-            font-size: 20px;
-
-            font-weight: bold;
-        }
-
 
 
         /* =========================================
@@ -457,12 +481,6 @@
                 padding: 25px;
             }
 
-
-            #card-opcoes {
-
-                min-height: 330px;
-            }
-
         }
 
     </style>
@@ -473,7 +491,6 @@
 <body>
 
 
-
     <!-- =========================================
          FUNDO
     ========================================= -->
@@ -481,33 +498,23 @@
     <div class="fundo-animado">
 
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
-
         <div class="elemento-fundo">💕</div>
 
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
-
         <div class="elemento-fundo">💕</div>
 
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
-
         <div class="elemento-fundo">💕</div>
 
         <div class="elemento-fundo">❤️</div>
 
     </div>
-
 
 
     <!-- =========================================
@@ -517,16 +524,7 @@
     <div class="area-cartao">
 
 
-        <!--
-            IMAGEM DO PERSONAGEM
-
-            O arquivo precisa se chamar:
-
-            Emoji.png
-
-            E estar na mesma pasta
-            deste index.html.
-        -->
+        <!-- PERSONAGEM -->
 
         <img
             src="Emoji.png"
@@ -535,9 +533,8 @@
         >
 
 
-
         <!-- =====================================
-             PRIMEIRO CARTÃO
+             CARTÃO DO CONVITE
         ====================================== -->
 
         <div
@@ -566,12 +563,6 @@
                 </button>
 
 
-
-                <!--
-                    O botão foge tanto no computador
-                    quanto no celular.
-                -->
-
                 <button
                     id="btn-nao"
                     onmouseenter="fugirPelaTela(event)"
@@ -588,9 +579,8 @@
         </div>
 
 
-
         <!-- =====================================
-             CARTÃO DAS OPÇÕES
+             CARTÃO DOS LOCAIS
         ====================================== -->
 
         <div
@@ -598,13 +588,11 @@
             id="card-opcoes"
         >
 
-
             <h1>
 
                 Então escolha nosso encontro 🥰
 
             </h1>
-
 
 
             <label class="opcao">
@@ -620,7 +608,6 @@
             </label>
 
 
-
             <label class="opcao">
 
                 <input
@@ -632,7 +619,6 @@
                 🌅 Passeio no lago
 
             </label>
-
 
 
             <label class="opcao">
@@ -648,19 +634,57 @@
             </label>
 
 
-
             <button
-                class="btn-finalizar"
-                onclick="finalizarEncontro()"
+                class="btn-confirmar"
+                onclick="irParaData()"
             >
 
-                Esse!!
+                Escolher data ❤️
 
             </button>
 
-
         </div>
 
+
+        <!-- =====================================
+             CARTÃO DA DATA
+        ====================================== -->
+
+        <div
+            class="container escondido"
+            id="card-data"
+        >
+
+            <h1>
+
+                Agora escolha a data 📅
+
+            </h1>
+
+
+            <p class="texto-data">
+
+                Escolha o dia do nosso encontro:
+
+            </p>
+
+
+            <input
+                type="date"
+                id="data-encontro"
+            >
+
+
+            <button
+                class="btn-confirmar"
+                onclick="confirmarData()"
+            >
+
+                Confirmar data ❤️
+
+            </button>
+
+        </div>
 
 
         <!-- =====================================
@@ -672,10 +696,9 @@
             id="card-sucesso"
         >
 
-
             <h1>
 
-                Eba! Mal posso esperar! ❤️
+                Eba! ❤️
 
             </h1>
 
@@ -683,11 +706,15 @@
             <p id="mensagem-final"></p>
 
 
+            <div
+                class="resumo"
+                id="resumo-encontro"
+            ></div>
+
         </div>
 
 
     </div>
-
 
 
     <!-- =========================================
@@ -697,45 +724,49 @@
     <script>
 
 
+        /* =========================================
+           ELEMENTOS
+        ========================================= */
+
         const btnNao =
-            document.getElementById(
-                "btn-nao"
-            );
+            document.getElementById("btn-nao");
 
 
         const cardConvite =
-            document.getElementById(
-                "card-convite"
-            );
+            document.getElementById("card-convite");
 
 
         const cardOpcoes =
-            document.getElementById(
-                "card-opcoes"
-            );
+            document.getElementById("card-opcoes");
+
+
+        const cardData =
+            document.getElementById("card-data");
 
 
         const cardSucesso =
-            document.getElementById(
-                "card-sucesso"
-            );
+            document.getElementById("card-sucesso");
 
 
         const mensagemFinal =
-            document.getElementById(
-                "mensagem-final"
-            );
+            document.getElementById("mensagem-final");
+
+
+        const resumoEncontro =
+            document.getElementById("resumo-encontro");
+
+
+        const dataEncontro =
+            document.getElementById("data-encontro");
 
 
         const tituloConvite =
-            document.getElementById(
-                "titulo-convite"
-            );
+            document.getElementById("titulo-convite");
 
 
 
         /* =========================================
-           FRASES DO BOTÃO NÃO
+           FRASES DO NÃO
         ========================================= */
 
         const frasesNao = [
@@ -758,16 +789,44 @@
 
 
         /* =========================================
-           BOTÃO NÃO FUGINDO
+           DATA MÍNIMA = HOJE
+        ========================================= */
+
+        const hoje = new Date();
+
+
+        const ano =
+            hoje.getFullYear();
+
+
+        const mes =
+            String(
+                hoje.getMonth() + 1
+            ).padStart(2, "0");
+
+
+        const dia =
+            String(
+                hoje.getDate()
+            ).padStart(2, "0");
+
+
+        const dataMinima =
+
+            `${ano}-${mes}-${dia}`;
+
+
+        dataEncontro.min =
+            dataMinima;
+
+
+
+        /* =========================================
+           BOTÃO NÃO
         ========================================= */
 
         function fugirPelaTela(event) {
 
-
-            /*
-             * Evita que o toque no celular
-             * cause comportamentos inesperados.
-             */
 
             if (event) {
 
@@ -776,15 +835,8 @@
             }
 
 
-
-            /*
-             * O botão passa a usar
-             * a tela inteira como referência.
-             */
-
             btnNao.style.position =
                 "fixed";
-
 
 
             const larguraBotao =
@@ -803,41 +855,15 @@
                 window.innerHeight;
 
 
-
-            /*
-             * Pega a posição atual
-             * do cartão branco.
-             */
-
             const card =
                 cardConvite.getBoundingClientRect();
 
 
-
-            /*
-             * Distância mínima do cartão.
-             *
-             * Quanto maior o número,
-             * mais longe o botão ficará.
-             */
-
             const distanciaCartao = 70;
 
 
-
-            /*
-             * Margem mínima da borda
-             * da tela.
-             */
-
             const margemTela = 15;
 
-
-
-            /*
-             * Cria uma área proibida
-             * ao redor do cartão.
-             */
 
             const areaProibida = {
 
@@ -860,7 +886,6 @@
             };
 
 
-
             let novoX = 0;
 
             let novoY = 0;
@@ -868,22 +893,14 @@
             let posicaoValida = false;
 
 
-
-            /*
-             * Descobre onde o botão
-             * está atualmente.
-             */
-
             const atual =
                 btnNao.getBoundingClientRect();
-
 
 
             const centroAtualX =
 
                 atual.left +
                 atual.width / 2;
-
 
 
             const centroAtualY =
@@ -893,23 +910,12 @@
 
 
 
-            /*
-             * Tenta encontrar uma nova posição.
-             *
-             * São feitas até 100 tentativas.
-             */
-
             for (
                 let tentativa = 0;
                 tentativa < 100;
                 tentativa++
             ) {
 
-
-                /*
-                 * Sorteia uma posição
-                 * em qualquer lugar da tela.
-                 */
 
                 novoX =
 
@@ -922,7 +928,6 @@
                         larguraBotao -
                         margemTela * 2
                     );
-
 
 
                 novoY =
@@ -938,11 +943,6 @@
                     );
 
 
-
-                /*
-                 * Verifica se a posição
-                 * está perto demais do cartão.
-                 */
 
                 const estaPertoDoCartao =
 
@@ -968,16 +968,10 @@
 
 
 
-                /*
-                 * Calcula a distância
-                 * em relação à posição anterior.
-                 */
-
                 const novoCentroX =
 
                     novoX +
                     larguraBotao / 2;
-
 
 
                 const novoCentroY =
@@ -992,37 +986,22 @@
                     Math.sqrt(
 
                         Math.pow(
-
                             novoCentroX -
                             centroAtualX,
-
                             2
-
                         )
 
                         +
 
                         Math.pow(
-
                             novoCentroY -
                             centroAtualY,
-
                             2
-
                         )
 
                     );
 
 
-
-                /*
-                 * Só aceita a posição se:
-                 *
-                 * 1. Não estiver perto do cartão.
-                 *
-                 * 2. Estiver pelo menos
-                 *    120px distante da posição anterior.
-                 */
 
                 if (
 
@@ -1044,23 +1023,15 @@
 
 
 
-            /*
-             * Se não encontrou uma posição
-             * válida, usa um dos quatro cantos.
-             */
-
             if (!posicaoValida) {
 
 
                 const possibilidades = [
 
-
                     {
                         x: margemTela,
-
                         y: margemTela
                     },
-
 
                     {
                         x:
@@ -1071,7 +1042,6 @@
                         y: margemTela
                     },
 
-
                     {
                         x: margemTela,
 
@@ -1080,7 +1050,6 @@
                             alturaBotao -
                             margemTela
                     },
-
 
                     {
                         x:
@@ -1094,15 +1063,8 @@
                             margemTela
                     }
 
-
                 ];
 
-
-
-                /*
-                 * Escolhe um dos cantos
-                 * aleatoriamente.
-                 */
 
                 const escolha =
 
@@ -1118,7 +1080,6 @@
                     ];
 
 
-
                 novoX = escolha.x;
 
                 novoY = escolha.y;
@@ -1126,11 +1087,6 @@
             }
 
 
-
-            /*
-             * Garante que o botão
-             * nunca saia da tela.
-             */
 
             novoX = Math.max(
 
@@ -1147,7 +1103,6 @@
                 )
 
             );
-
 
 
             novoY = Math.max(
@@ -1167,11 +1122,6 @@
             );
 
 
-
-            /*
-             * Aplica a nova posição.
-             */
-
             btnNao.style.left =
                 novoX + "px";
 
@@ -1180,26 +1130,16 @@
                 novoY + "px";
 
 
-
-            /*
-             * Troca a frase do botão.
-             */
-
             btnNao.innerText =
-
                 frasesNao[indiceFrase];
-
 
 
             indiceFrase++;
 
 
-
             if (
-
                 indiceFrase >=
                 frasesNao.length
-
             ) {
 
                 indiceFrase = 0;
@@ -1211,7 +1151,7 @@
 
 
         /* =========================================
-           QUANDO CLICAR EM SIM
+           SIM → LOCAIS
         ========================================= */
 
         function irParaOpcoes() {
@@ -1222,7 +1162,6 @@
                 "Nossa achei que iria clicar no não Rs";
 
 
-
             const botoes =
 
                 cardConvite.querySelector(
@@ -1230,14 +1169,12 @@
                 );
 
 
-
             botoes.classList.add(
                 "escondido"
             );
 
 
-
-            setTimeout(function () {
+            setTimeout(function() {
 
 
                 cardConvite.classList.add(
@@ -1257,33 +1194,61 @@
 
 
         /* =========================================
-           FINALIZAR ESCOLHA
+           LOCAIS → DATA
         ========================================= */
 
-        function finalizarEncontro() {
+        function irParaData() {
 
 
             const lugarSelecionado =
 
                 document.querySelector(
-
                     'input[name="lugar"]:checked'
-
                 );
 
-
-
-            /*
-             * Se não escolheu nenhum lugar.
-             */
 
             if (!lugarSelecionado) {
 
 
                 alert(
-
                     "Escolha um lugar primeiro 🥰"
+                );
 
+
+                return;
+
+            }
+
+
+            cardOpcoes.classList.add(
+                "escondido"
+            );
+
+
+            cardData.classList.remove(
+                "escondido"
+            );
+
+        }
+
+
+
+        /* =========================================
+           DATA → FINAL
+        ========================================= */
+
+        function confirmarData() {
+
+
+            const dataEscolhida =
+                dataEncontro.value;
+
+
+            if (!dataEscolhida) {
+
+
+                alert(
+                    "Escolha uma data primeiro 📅"
                 );
 
 
@@ -1293,23 +1258,69 @@
 
 
 
-            const lugar =
+            const lugarSelecionado =
 
+                document.querySelector(
+                    'input[name="lugar"]:checked'
+                );
+
+
+            const lugar =
                 lugarSelecionado.value;
 
 
 
+            /*
+             * Converte a data para
+             * o formato brasileiro.
+             */
+
+            const partes =
+                dataEscolhida.split("-");
+
+
+            const anoEscolhido =
+                partes[0];
+
+
+            const mesEscolhido =
+                partes[1];
+
+
+            const diaEscolhido =
+                partes[2];
+
+
+            const dataFormatada =
+
+                `${diaEscolhido}/${mesEscolhido}/${anoEscolhido}`;
+
+
+
+            /* =====================================
+               MOSTRA RESULTADO
+            ===================================== */
+
             mensagemFinal.innerText =
 
-                "Então está decidido: " +
+                "Está marcado! 🥰❤️";
+
+
+            resumoEncontro.innerHTML =
+
+                "📍 <strong>Local:</strong> " +
 
                 lugar +
 
-                "! 🥰";
+                "<br><br>" +
+
+                "📅 <strong>Data:</strong> " +
+
+                dataFormatada;
 
 
 
-            cardOpcoes.classList.add(
+            cardData.classList.add(
                 "escondido"
             );
 
@@ -1321,7 +1332,7 @@
 
 
             /* =====================================
-               COLOQUE SEU NÚMERO DO WHATSAPP AQUI
+               WHATSAPP
             ===================================== */
 
             const SEU_NUMERO_WHATSAPP =
@@ -1332,11 +1343,23 @@
 
             const mensagem =
 
-                "Oi! Eu escolhi " +
+                "Oi! 🥰❤️" +
+
+                "\n\n" +
+
+                "Nosso encontro ficou marcado!" +
+
+                "\n\n" +
+
+                "📍 Local: " +
 
                 lugar +
 
-                " para nosso encontro 🥰❤️";
+                "\n" +
+
+                "📅 Data: " +
+
+                dataFormatada;
 
 
 
@@ -1349,25 +1372,21 @@
                 "?text=" +
 
                 encodeURIComponent(
-
                     mensagem
-
                 );
 
 
 
-            setTimeout(function () {
+            setTimeout(function() {
 
 
                 window.location.href =
-
                     linkWhatsApp;
 
 
-            }, 2000);
+            }, 3000);
 
         }
-
 
     </script>
 
