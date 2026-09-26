@@ -114,7 +114,7 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -123,7 +123,7 @@
             white-space: nowrap;
         }
 
-        /* Botões de Ação Positiva (SIM e ESSE!!) em Verde */
+        /* Botões de Ação Positiva em Verde */
         .btn-verde {
             width: 120px;
             background-color: #2a9d8f;
@@ -140,7 +140,6 @@
             background-color: #e63946;
             color: white;
             z-index: 12;
-            width: auto; /* Permite expandir levemente baseado no texto novo */
             min-width: 110px;
         }
 
@@ -184,7 +183,7 @@
         </div>
     </div>
 
-    <!-- PARTE 2: Escolha do Lugar (Aparece após clicar no SIM) -->
+    <!-- PARTE 2: Escolha do Lugar -->
     <div class="container escondido" id="card-opcoes">
         <h1>Sabia que iria aceitar, onde seria bom de irmos para vc? 🥰</h1>
         
@@ -208,7 +207,7 @@
         </div>
     </div>
 
-    <!-- PARTE 3: Tela de Sucesso e Redirecionamento -->
+    <!-- PARTE 3: Tela de Sucesso -->
     <div class="container escondido" id="card-sucesso">
         <h2>Eba! Mal posso esperar! ❤️</h2>
         <p id="mensagem-final"></p>
@@ -226,7 +225,6 @@
         const mensagemFinal = document.getElementById('mensagem-final');
         const fundoAnimado = document.getElementById('fundo-animado');
 
-        // Lista de frases para alternar ao fugir
         const frasesPersistentes = [
             "Tem certeza?",
             "Não quer considerar?",
@@ -236,7 +234,7 @@
             "Nem um cafezinho?"
         ];
 
-        // Cria o papel de parede animado em loop (corações e rosas subindo)
+        // Cria o fundo animado
         const elementos = ['❤️', '🌹', '💖', '🌹', '💕'];
         for (let i = 0; i < 40; i++) {
             const el = document.createElement('div');
@@ -249,13 +247,16 @@
             fundoAnimado.appendChild(el);
         }
 
-        // Função de fuga do botão NÃO (Orbitando o centro) + Troca de Texto
+        // Fuga estritamente limitada ao redor do card central
         function fugir() {
+            // Posiciona em relação à janela, mas usando margens próximas ao centro
             const centroX = window.innerWidth / 2;
             const centroY = window.innerHeight / 2;
 
-            const limiteRaioX = 180;
-            const limiteRaioY = 220;
+            // Define uma área muito menor (raio máximo de 100px para os lados e 60px para cima/baixo)
+            // Isso força o botão a flutuar colado ao redor do container branco central
+            const limiteRaioX = 90; 
+            const limiteRaioY = 60; 
 
             const novoX = centroX + (Math.random() * (limiteRaioX * 2) - limiteRaioX) - (btnNao.offsetWidth / 2);
             const novoY = centroY + (Math.random() * (limiteRaioY * 2) - limiteRaioY) - (btnNao.offsetHeight / 2);
@@ -264,7 +265,6 @@
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
 
-            // Escolhe uma frase aleatória diferente do texto atual do botão
             let fraseAleatoria;
             do {
                 fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
@@ -273,13 +273,11 @@
             btnNao.innerText = fraseAleatoria;
         }
 
-        // Avança para a segunda etapa (Escolha de locais)
         function irParaOpcoes() {
             cardConvite.classList.add('escondido');
             cardOpcoes.classList.remove('escondido');
         }
 
-        // Finaliza, gera a chuva de corações e prepara o WhatsApp
         function finalizarEncontro() {
             const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
             
@@ -301,3 +299,10 @@
                     coracao.style.left = Math.random() * 100 + 'vw';
                     coracao.style.fontSize = Math.random() * 20 + 20 + 'px';
                     coracao.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+                    document.body.appendChild(coracao);
+
+                    setTimeout(() => { coracao.remove(); }, 3000);
+                }, i * 80);
+            }
+        }
+
