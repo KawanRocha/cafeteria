@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,29 +8,25 @@
     <title>Quer sair comigo?</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #1a0003;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Times New Roman', sans-serif;
+            background-color: #1a0003;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             overflow: hidden;
-            text-align: center;
-            position: relative;
         }
 
-        /* ==========================================
-           FUNDO ANIMADO
-        ========================================== */
-
+        /* Fundo animado */
         .fundo-animado {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            position: fixed;
+            inset: 0;
             overflow: hidden;
             z-index: 1;
             pointer-events: none;
@@ -39,139 +34,109 @@
 
         .elemento-fundo {
             position: absolute;
-            bottom: -60px;
-            font-size: 26px;
-            text-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
-            animation: subirFundo linear infinite;
-            user-select: none;
+            bottom: -50px;
+            font-size: 25px;
+            animation: subir 8s linear infinite;
+            opacity: 0.8;
         }
 
         .elemento-fundo:nth-child(1) {
             left: 5%;
-            font-size: 32px;
-            animation-duration: 5s;
+            animation-delay: 0s;
         }
 
         .elemento-fundo:nth-child(2) {
-            left: 12%;
-            font-size: 22px;
-            animation-duration: 7s;
+            left: 15%;
             animation-delay: 2s;
         }
 
         .elemento-fundo:nth-child(3) {
-            left: 20%;
-            font-size: 28px;
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
-
-        .elemento-fundo:nth-child(4) {
-            left: 28%;
-            font-size: 24px;
-            animation-duration: 8s;
-            animation-delay: 3s;
-        }
-
-        .elemento-fundo:nth-child(5) {
-            left: 35%;
-            font-size: 32px;
-            animation-duration: 5.5s;
-            animation-delay: 0.5s;
-        }
-
-        .elemento-fundo:nth-child(6) {
-            left: 43%;
-            font-size: 20px;
-            animation-duration: 7.5s;
+            left: 25%;
             animation-delay: 4s;
         }
 
+        .elemento-fundo:nth-child(4) {
+            left: 35%;
+            animation-delay: 1s;
+        }
+
+        .elemento-fundo:nth-child(5) {
+            left: 45%;
+            animation-delay: 3s;
+        }
+
+        .elemento-fundo:nth-child(6) {
+            left: 55%;
+            animation-delay: 5s;
+        }
+
         .elemento-fundo:nth-child(7) {
-            left: 50%;
-            font-size: 26px;
-            animation-duration: 6.2s;
-            animation-delay: 1.8s;
+            left: 65%;
+            animation-delay: 1.5s;
         }
 
         .elemento-fundo:nth-child(8) {
-            left: 58%;
-            font-size: 30px;
-            animation-duration: 8.2s;
-            animation-delay: 2.5s;
+            left: 75%;
+            animation-delay: 3.5s;
         }
 
         .elemento-fundo:nth-child(9) {
-            left: 65%;
-            font-size: 22px;
-            animation-duration: 5.8s;
-            animation-delay: 0.2s;
+            left: 85%;
+            animation-delay: 2.5s;
         }
 
         .elemento-fundo:nth-child(10) {
-            left: 73%;
-            font-size: 28px;
-            animation-duration: 7.1s;
-            animation-delay: 3.2s;
-        }
-
-        .elemento-fundo:nth-child(11) {
-            left: 80%;
-            font-size: 25px;
-            animation-duration: 6.4s;
+            left: 95%;
             animation-delay: 4.5s;
         }
 
+        .elemento-fundo:nth-child(11) {
+            left: 20%;
+            animation-delay: 6s;
+        }
+
         .elemento-fundo:nth-child(12) {
-            left: 88%;
-            font-size: 31px;
-            animation-duration: 5.2s;
-            animation-delay: 1.2s;
+            left: 70%;
+            animation-delay: 6.5s;
         }
 
         .elemento-fundo:nth-child(13) {
-            left: 95%;
-            font-size: 21px;
-            animation-duration: 7.9s;
-            animation-delay: 2.9s;
+            left: 50%;
+            animation-delay: 7s;
         }
 
-        @keyframes subirFundo {
+        @keyframes subir {
             0% {
                 transform: translateY(0) rotate(0deg);
                 opacity: 0;
             }
 
-            15% {
-                opacity: 0.85;
+            10% {
+                opacity: 0.8;
             }
 
-            85% {
-                opacity: 0.85;
+            90% {
+                opacity: 0.8;
             }
 
             100% {
-                transform: translateY(-115vh) rotate(360deg);
+                transform: translateY(-110vh) rotate(360deg);
                 opacity: 0;
             }
         }
 
-        /* ==========================================
-           CARD PRINCIPAL
-        ========================================== */
-
+        /* Cartões */
         .container {
-            background-color: rgba(255, 255, 255, 0.96);
-            padding: 35px 30px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            max-width: 420px;
-            width: 90%;
-            min-height: 220px;
             position: relative;
             z-index: 10;
-            backdrop-filter: blur(5px);
-            box-sizing: border-box;
+            width: 90%;
+            max-width: 420px;
+            min-height: 220px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
 
         #card-opcoes {
@@ -180,164 +145,117 @@
 
         h1 {
             color: #ff4d6d;
-            margin: 0 0 25px 0;
-            font-size: 26px;
+            margin-bottom: 30px;
         }
-
-        /* ==========================================
-           OPÇÕES
-        ========================================== */
-
-        .options-container {
-            margin: 25px 0;
-            text-align: left;
-        }
-
-        .option-item {
-            margin: 12px 0;
-            font-size: 18px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .option-item input {
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-        }
-
-        /* ==========================================
-           BOTÕES
-        ========================================== */
 
         .btn-container {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin-top: 20px;
-            height: 50px;
+            min-height: 60px;
         }
 
         button {
-            height: 46px;
-            font-size: 16px;
             border: none;
-            border-radius: 25px;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-family: inherit;
             cursor: pointer;
-            font-weight: bold;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-            padding: 0 25px;
-            white-space: nowrap;
+            transition: transform 0.2s ease;
         }
 
-        /* ==========================================
-           BOTÃO SIM
-        ========================================== */
-
         .btn-verde {
-            width: 120px;
             background-color: #2a9d8f;
             color: white;
-            z-index: 11;
-            transition: transform 0.1s ease;
+            width: 120px;
         }
 
         .btn-verde:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
-
-        /* ==========================================
-           BOTÃO NÃO
-        ========================================== */
 
         #btn-nao {
             background-color: #e63946;
             color: white;
-            z-index: 12;
             min-width: 110px;
-
+            position: relative;
+            z-index: 20;
             transition:
                 left 0.15s ease,
                 top 0.15s ease;
         }
 
-        /* ==========================================
-           ESCONDIDO
-        ========================================== */
+        #btn-nao:hover {
+            transform: scale(1.05);
+        }
+
+        .opcao {
+            display: block;
+            margin: 15px 0;
+            padding: 15px;
+            border: 2px solid #ff4d6d;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .opcao:hover {
+            background-color: #ffe5eb;
+        }
+
+        .opcao input {
+            margin-right: 10px;
+        }
+
+        .btn-finalizar {
+            margin-top: 20px;
+            background-color: #ff4d6d;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-finalizar:hover {
+            transform: scale(1.03);
+        }
 
         .escondido {
             display: none !important;
         }
 
-        /* ==========================================
-           CORAÇÕES
-        ========================================== */
-
-        .coracao-clique {
-            position: absolute;
+        #mensagem-final {
             color: #ff4d6d;
-            font-size: 24px;
-            pointer-events: none;
-            z-index: 20;
-            animation: cair linear forwards;
-        }
-
-        @keyframes cair {
-            0% {
-                transform: translateY(-50px) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
-
 </head>
 
 <body>
 
-    <!-- ==========================================
-         FUNDO
-    ========================================== -->
-
+    <!-- Fundo -->
     <div class="fundo-animado">
-
         <div class="elemento-fundo">❤️</div>
         <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div>
-        <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💕</div>
         <div class="elemento-fundo">❤️</div>
         <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div>
-        <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💕</div>
         <div class="elemento-fundo">❤️</div>
         <div class="elemento-fundo">🌹</div>
         <div class="elemento-fundo">💖</div>
-
+        <div class="elemento-fundo">💕</div>
+        <div class="elemento-fundo">❤️</div>
     </div>
 
-
-    <!-- ==========================================
-         PARTE 1
-    ========================================== -->
-
-    <div
-        class="container"
-        id="card-convite">
+    <!-- Primeiro cartão -->
+    <div class="container" id="card-convite">
 
         <h1 id="titulo-convite">
-            Quer sair comigo? 🌹
+            Quer sair comigo?
         </h1>
 
         <div class="btn-container">
@@ -346,133 +264,74 @@
                 class="btn-verde"
                 id="btn-sim"
                 onclick="irParaOpcoes()">
-
                 SIM!
-
             </button>
 
             <button
                 id="btn-nao"
                 onmouseenter="fugirPelaTela()">
-
                 NÃO
-
             </button>
 
         </div>
-
     </div>
 
-
-    <!-- ==========================================
-         PARTE 2
-    ========================================== -->
-
+    <!-- Cartão das opções -->
     <div
         class="container escondido"
         id="card-opcoes">
 
         <h1>
-            Sabia que iria aceitar,
-            onde seria bom de irmos para vc? 🥰
+            Então escolha nosso encontro 🥰
         </h1>
 
-        <div class="options-container">
+        <label class="opcao">
+            <input
+                type="radio"
+                name="lugar"
+                value="Cinema">
+            🎬 Cinema
+        </label>
 
-            <div class="option-item">
+        <label class="opcao">
+            <input
+                type="radio"
+                name="lugar"
+                value="Passeio no lago">
+            🌅 Passeio no lago
+        </label>
 
-                <input
-                    type="radio"
-                    id="lugar1"
-                    name="lugar"
-                    value="Cinema"
-                    checked>
+        <label class="opcao">
+            <input
+                type="radio"
+                name="lugar"
+                value="Cafe ou melhor capuccino">
+            ☕ Cafe ou melhor capuccino
+        </label>
 
-                <label for="lugar1">
-                    🎬 Cinema
-                </label>
-
-            </div>
-
-            <div class="option-item">
-
-                <input
-                    type="radio"
-                    id="lugar2"
-                    name="lugar"
-                    value="Passeio no lago">
-
-                <label for="lugar2">
-                    🌅 Passeio no lago
-                </label>
-
-            </div>
-
-            <div class="option-item">
-
-                <input
-                    type="radio"
-                    id="lugar3"
-                    name="lugar"
-                    value="Cafe ou melhor capuccino">
-
-                <label for="lugar3">
-                    ☕ Cafe ou melhor capuccino
-                </label>
-
-            </div>
-
-        </div>
-
-        <div class="btn-container">
-
-            <button
-                class="btn-verde"
-                style="width: 140px;"
-                onclick="finalizarEncontro()">
-
-                Esse!!
-
-            </button>
-
-        </div>
+        <button
+            class="btn-finalizar"
+            onclick="finalizarEncontro()">
+            Esse!!
+        </button>
 
     </div>
 
-
-    <!-- ==========================================
-         PARTE 3
-    ========================================== -->
-
+    <!-- Cartão final -->
     <div
         class="container escondido"
         id="card-sucesso">
 
-        <h2>
+        <h1>
             Eba! Mal posso esperar! ❤️
-        </h2>
+        </h1>
 
         <p id="mensagem-final"></p>
-
-        <p
-            style="
-                font-size: 14px;
-                color: #888;
-                margin-top: 15px;
-            ">
-
-            Redirecionando para o WhatsApp...
-
-        </p>
 
     </div>
 
 
     <script>
-
-        /* ==========================================
-           ELEMENTOS
-        ========================================== */
 
         const btnNao =
             document.getElementById("btn-nao");
@@ -493,9 +352,7 @@
             document.getElementById("titulo-convite");
 
 
-        /* ==========================================
-           FRASES DO BOTÃO NÃO
-        ========================================== */
+        /* Frases do botão NÃO */
 
         const frasesNao = [
             "Da uma chance",
@@ -506,23 +363,11 @@
         let indiceFrase = 0;
 
 
-        /* ==========================================
-           FUGA DO BOTÃO NÃO
-        ========================================== */
+        /* Botão NÃO fugindo */
 
         function fugirPelaTela() {
 
-            /*
-             * Permite posicionar o botão livremente
-             * na tela.
-             */
-
             btnNao.style.position = "fixed";
-
-
-            /*
-             * Tamanho do botão.
-             */
 
             const larguraBotao =
                 btnNao.offsetWidth;
@@ -531,9 +376,7 @@
                 btnNao.offsetHeight;
 
 
-            /*
-             * Centro da tela.
-             */
+            // Centro da tela
 
             const centroX =
                 window.innerWidth / 2;
@@ -543,212 +386,99 @@
 
 
             /*
-             * ======================================
-             * ÁREA DE FUGA
-             * ======================================
+             * Área onde o botão pode fugir.
              *
-             * REDUZIDA.
-             *
-             * O botão só pode aparecer em uma
-             * pequena região próxima ao centro.
+             * Quanto menores os valores,
+             * mais perto do centro ele fica.
              */
 
-            const raioX = 40;
-            const raioY = 30;
+            const raioX = 100;
+            const raioY = 70;
 
-
-            /*
-             * Sorteia posição.
-             */
-
-            let novoX =
-                centroX -
-                larguraBotao / 2 +
-                (Math.random() * 2 - 1) *
-                raioX;
-
-
-            let novoY =
-                centroY -
-                alturaBotao / 2 +
-                (Math.random() * 2 - 1) *
-                raioY;
-
-
-            /*
-             * ======================================
-             * PEGA O CARD
-             * ======================================
-             */
 
             const card =
                 cardConvite.getBoundingClientRect();
 
 
-            /*
-             * Espaço mínimo entre o botão
-             * e o quadrado branco.
-             */
-
-            const margem = 12;
+            const margem = 15;
 
 
-            /*
-             * Verifica se o botão caiu
-             * em cima do quadrado branco.
-             */
+            let novoX;
+            let novoY;
 
-            const sobreCard = (
-
-                novoX <
-                card.right + margem
-
-                &&
-
-                novoX + larguraBotao >
-                card.left - margem
-
-                &&
-
-                novoY <
-                card.bottom + margem
-
-                &&
-
-                novoY + alturaBotao >
-                card.top - margem
-
-            );
+            let posicaoValida = false;
 
 
             /*
-             * Se caiu sobre o card,
-             * força uma nova posição
-             * ao redor dele.
+             * Tenta encontrar uma posição aleatória
+             * que não fique em cima do cartão.
              */
 
-            if (sobreCard) {
+            for (
+                let tentativa = 0;
+                tentativa < 50;
+                tentativa++
+            ) {
 
-                const lado =
-                    Math.floor(
-                        Math.random() * 4
-                    );
+                novoX =
+                    centroX -
+                    larguraBotao / 2 +
+                    (Math.random() * 2 - 1) * raioX;
 
 
-                /* ACIMA */
+                novoY =
+                    centroY -
+                    alturaBotao / 2 +
+                    (Math.random() * 2 - 1) * raioY;
 
-                if (lado === 0) {
 
-                    novoX =
-                        card.left +
-                        (
-                            Math.random() *
-                            card.width
-                        ) -
-                        larguraBotao / 2;
+                const sobreCard =
+                    novoX < card.right + margem &&
+                    novoX + larguraBotao >
+                        card.left - margem &&
+                    novoY < card.bottom + margem &&
+                    novoY + alturaBotao >
+                        card.top - margem;
 
-                    novoY =
-                        card.top -
-                        alturaBotao -
-                        margem;
 
+                if (!sobreCard) {
+
+                    posicaoValida = true;
+
+                    break;
                 }
-
-
-                /* ABAIXO */
-
-                else if (lado === 1) {
-
-                    novoX =
-                        card.left +
-                        (
-                            Math.random() *
-                            card.width
-                        ) -
-                        larguraBotao / 2;
-
-                    novoY =
-                        card.bottom +
-                        margem;
-
-                }
-
-
-                /* ESQUERDA */
-
-                else if (lado === 2) {
-
-                    novoX =
-                        card.left -
-                        larguraBotao -
-                        margem;
-
-                    novoY =
-                        card.top +
-                        (
-                            Math.random() *
-                            card.height
-                        ) -
-                        alturaBotao / 2;
-
-                }
-
-
-                /* DIREITA */
-
-                else {
-
-                    novoX =
-                        card.right +
-                        margem;
-
-                    novoY =
-                        card.top +
-                        (
-                            Math.random() *
-                            card.height
-                        ) -
-                        alturaBotao / 2;
-
-                }
-
             }
 
 
             /*
-             * ======================================
-             * LIMITES DA TELA
-             * ======================================
+             * Impede o botão de sair
+             * completamente da tela.
              */
 
-            novoX =
-                Math.max(
-                    10,
-                    Math.min(
-                        novoX,
-                        window.innerWidth -
+            novoX = Math.max(
+                10,
+                Math.min(
+                    novoX,
+                    window.innerWidth -
                         larguraBotao -
                         10
-                    )
-                );
+                )
+            );
 
 
-            novoY =
-                Math.max(
-                    10,
-                    Math.min(
-                        novoY,
-                        window.innerHeight -
+            novoY = Math.max(
+                10,
+                Math.min(
+                    novoY,
+                    window.innerHeight -
                         alturaBotao -
                         10
-                    )
-                );
+                )
+            );
 
 
             /*
-             * ======================================
-             * APLICA A POSIÇÃO
-             * ======================================
+             * Aplica a nova posição.
              */
 
             btnNao.style.left =
@@ -759,9 +489,7 @@
 
 
             /*
-             * ======================================
-             * MUDA A FRASE
-             * ======================================
+             * Troca a frase do botão.
              */
 
             btnNao.innerText =
@@ -777,43 +505,28 @@
             ) {
 
                 indiceFrase = 0;
-
             }
-
         }
 
 
-        /* ==========================================
-           CLIQUE NO SIM
-        ========================================== */
+        /* Quando clicar em SIM */
 
         function irParaOpcoes() {
-
-            /*
-             * Altera o título.
-             */
 
             tituloConvite.innerText =
                 "Nossa achei que iria clicar no não Rs";
 
-
-            /*
-             * Esconde os botões.
-             */
 
             const botoes =
                 cardConvite.querySelector(
                     ".btn-container"
                 );
 
+
             botoes.classList.add(
                 "escondido"
             );
 
-
-            /*
-             * Aguarda 2 segundos.
-             */
 
             setTimeout(function () {
 
@@ -826,25 +539,41 @@
                 );
 
             }, 2000);
-
         }
 
 
-        /* ==========================================
-           FINALIZAR ENCONTRO
-        ========================================== */
+        /* Finalizar escolha */
 
         function finalizarEncontro() {
 
             const lugarSelecionado =
                 document.querySelector(
                     'input[name="lugar"]:checked'
-                ).value;
+                );
+
+
+            /*
+             * Se não escolheu nenhum lugar,
+             * avisa antes de continuar.
+             */
+
+            if (!lugarSelecionado) {
+
+                alert(
+                    "Escolha um lugar primeiro 🥰"
+                );
+
+                return;
+            }
+
+
+            const lugar =
+                lugarSelecionado.value;
 
 
             mensagemFinal.innerText =
                 "Então está decidido: " +
-                lugarSelecionado +
+                lugar +
                 "! 🥰";
 
 
@@ -852,13 +581,17 @@
                 "escondido"
             );
 
+
             cardSucesso.classList.remove(
                 "escondido"
             );
 
 
             /*
-             * COLOQUE SEU NÚMERO AQUI
+             * COLOQUE AQUI SEU NÚMERO
+             *
+             * Exemplo:
+             * 5545999999999
              */
 
             const SEU_NUMERO_WHATSAPP =
@@ -867,7 +600,7 @@
 
             const mensagem =
                 "Oi! Eu escolhi " +
-                lugarSelecionado +
+                lugar +
                 " para nosso encontro 🥰❤️";
 
 
@@ -886,7 +619,6 @@
                     linkWhatsApp;
 
             }, 2000);
-
         }
 
     </script>
@@ -894,4 +626,3 @@
 </body>
 
 </html>
-```
