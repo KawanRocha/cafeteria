@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #1a0003; 
+            background: #1a0003;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,13 +18,13 @@
             position: relative;
         }
 
-        /* Camada com grande densidade de corações e rosas subindo */
+        /* Camada do Papel de Parede Animado */
         .fundo-animado {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
             z-index: 1;
             pointer-events: none;
@@ -32,58 +32,48 @@
 
         .elemento-fundo {
             position: absolute;
-            bottom: -60px;
-            font-size: 26px;
-            text-shadow: 0 0 10px rgba(255, 77, 109, 0.4);
+            bottom: -50px;
+            font-size: 24px;
+            opacity: 0.6;
             animation: subirFundo linear infinite;
-            user-select: none;
         }
 
-        /* Distribuição das trajetórias fixas e nativas para cobrir a tela */
-        .elemento-fundo:nth-child(1) { left: 5%; font-size: 32px; animation-duration: 5s; animation-delay: 0s; }
-        .elemento-fundo:nth-child(2) { left: 12%; font-size: 22px; animation-duration: 7s; animation-delay: 2s; }
-        .elemento-fundo:nth-child(3) { left: 20%; font-size: 28px; animation-duration: 6s; animation-delay: 1s; }
-        .elemento-fundo:nth-child(4) { left: 28%; font-size: 24px; animation-duration: 8s; animation-delay: 3s; }
-        .elemento-fundo:nth-child(5) { left: 35%; font-size: 32px; animation-duration: 5.5s; animation-delay: 0.5s; }
-        .elemento-fundo:nth-child(6) { left: 43%; font-size: 20px; animation-duration: 7.5s; animation-delay: 4s; }
-        .elemento-fundo:nth-child(7) { left: 50%; font-size: 26px; animation-duration: 6.2s; animation-delay: 1.8s; }
-        .elemento-fundo:nth-child(8) { left: 58%; font-size: 30px; animation-duration: 8.2s; animation-delay: 2.5s; }
-        .elemento-fundo:nth-child(9) { left: 65%; font-size: 22px; animation-duration: 5.8s; animation-delay: 0.2s; }
-        .elemento-fundo:nth-child(10) { left: 73%; font-size: 28px; animation-duration: 7.1s; animation-delay: 3.2s; }
-        .elemento-fundo:nth-child(11) { left: 80%; font-size: 25px; animation-duration: 6.4s; animation-delay: 4.5s; }
-        .elemento-fundo:nth-child(12) { left: 88%; font-size: 31px; animation-duration: 5.2s; animation-delay: 1.2s; }
-        .elemento-fundo:nth-child(13) { left: 95%; font-size: 21px; animation-duration: 7.9s; animation-delay: 2.9s; }
-
         @keyframes subirFundo {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            15% { opacity: 0.85; }
-            85% { opacity: 0.85; }
-            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Card Principal */
         .container {
-            background-color: rgba(255, 255, 255, 0.96);
-            padding: 35px 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            max-width: 420px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
             width: 90%;
-            min-height: 220px;
             position: relative;
             z-index: 10;
             backdrop-filter: blur(5px);
             box-sizing: border-box;
         }
 
-        #card-opcoes {
-            min-height: 340px;
-        }
-
         h1 {
             color: #ff4d6d;
-            margin: 0 0 25px 0;
+            margin-bottom: 20px;
             font-size: 26px;
+        }
+
+        p {
+            color: #4a4a4a;
+            font-size: 18px;
         }
 
         .options-container {
@@ -111,45 +101,53 @@
             justify-content: center;
             align-items: center;
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
             height: 50px;
+            position: relative;
         }
 
+        /* Padronização de tamanho dos botões */
         button {
-            height: 46px;
+            height: 45px;
             font-size: 16px;
             border: none;
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.2s ease;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
-            padding: 0 25px;
+            padding: 0 20px;
             white-space: nowrap;
         }
 
-        /* Botão SIM e ESSE!! em Verde */
+        /* Botões de Ação Positiva (SIM e ESSE!!) em Verde */
         .btn-verde {
             width: 120px;
             background-color: #2a9d8f;
             color: white;
             z-index: 11;
-            transition: transform 0.1s ease;
         }
 
-        .btn-verde:hover { transform: scale(1.1); }
+        .btn-verde:hover {
+            transform: scale(1.1);
+        }
 
         /* Botão NÃO em Vermelho */
         #btn-nao {
             background-color: #e63946;
             color: white;
             z-index: 12;
+            width: auto; /* Permite expandir levemente baseado no texto novo */
             min-width: 110px;
         }
 
-        .escondido { display: none !important; }
+        /* Classes de controle das etapas */
+        .escondido {
+            display: none !important;
+        }
 
         /* Chuva de cliques (Efeito de Sucesso) */
         .coracao-clique {
@@ -162,35 +160,34 @@
         }
 
         @keyframes cair {
-            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="fundo-animado">
-        <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
-        <div class="elemento-fundo">💖</div> <div class="elemento-fundo">🌹</div>
-        <div class="elemento-fundo">💕</div> <div class="elemento-fundo">❤️</div>
-        <div class="elemento-fundo">🌹</div> <div class="elemento-fundo">💖</div>
-        <div class="elemento-fundo">🌹</div> <div class="elemento-fundo">💕</div>
-        <div class="elemento-fundo">❤️</div> <div class="elemento-fundo">🌹</div>
-        <div class="elemento-fundo">💖</div>
-    </div>
+    <div class="fundo-animado" id="fundo-animado"></div>
 
     <!-- PARTE 1: O Convite Inicial -->
     <div class="container" id="card-convite">
         <h1>Quer sair comigo? 🌹</h1>
         <div class="btn-container">
             <button class="btn-verde" id="btn-sim" onclick="irParaOpcoes()">SIM!</button>
-            <button id="btn-nao" onmouseenter="fugirPelaTela()" onmouseover="fugirPelaTela()">NÃO</button>
+            <button id="btn-nao" onmouseover="fugir()" onclick="fugir()">NÃO</button>
         </div>
     </div>
 
-    <!-- PARTE 2: Escolha do Lugar -->
+    <!-- PARTE 2: Escolha do Lugar (Aparece após clicar no SIM) -->
     <div class="container escondido" id="card-opcoes">
         <h1>Sabia que iria aceitar, onde seria bom de irmos para vc? 🥰</h1>
+        
         <div class="options-container">
             <div class="option-item">
                 <input type="radio" id="lugar1" name="lugar" value="Cinema" checked>
@@ -205,12 +202,13 @@
                 <label for="lugar3">☕ Cafe ou melhor capuccino</label>
             </div>
         </div>
+
         <div class="btn-container">
             <button class="btn-verde" style="width: 140px;" onclick="finalizarEncontro()">Esse!!</button>
         </div>
     </div>
 
-    <!-- PARTE 3: Tela de Sucesso -->
+    <!-- PARTE 3: Tela de Sucesso e Redirecionamento -->
     <div class="container escondido" id="card-sucesso">
         <h2>Eba! Mal posso esperar! ❤️</h2>
         <p id="mensagem-final"></p>
@@ -226,7 +224,9 @@
         const cardOpcoes = document.getElementById('card-opcoes');
         const cardSucesso = document.getElementById('card-sucesso');
         const mensagemFinal = document.getElementById('mensagem-final');
+        const fundoAnimado = document.getElementById('fundo-animado');
 
+        // Lista de frases para alternar ao fugir
         const frasesPersistentes = [
             "Tem certeza?",
             "Não quer considerar?",
@@ -236,21 +236,35 @@
             "Nem um cafezinho?"
         ];
 
-        // Lógica que faz o botão fugir mudando para posição fixa na tela toda na primeira interação
-        function fugirPelaTela() {
+        // Cria o papel de parede animado em loop (corações e rosas subindo)
+        const elementos = ['❤️', '🌹', '💖', '🌹', '💕'];
+        for (let i = 0; i < 40; i++) {
+            const el = document.createElement('div');
+            el.classList.add('elemento-fundo');
+            el.innerText = elementos[Math.floor(Math.random() * elementos.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.fontSize = Math.random() * 20 + 15 + 'px';
+            el.style.animationDuration = Math.random() * 5 + 5 + 's';
+            el.style.animationDelay = Math.random() * 5 + 's';
+            fundoAnimado.appendChild(el);
+        }
+
+        // Função de fuga do botão NÃO (Orbitando o centro) + Troca de Texto
+        function fugir() {
+            const centroX = window.innerWidth / 2;
+            const centroY = window.innerHeight / 2;
+
+            const limiteRaioX = 180;
+            const limiteRaioY = 220;
+
+            const novoX = centroX + (Math.random() * (limiteRaioX * 2) - limiteRaioX) - (btnNao.offsetWidth / 2);
+            const novoY = centroY + (Math.random() * (limiteRaioY * 2) - limiteRaioY) - (btnNao.offsetHeight / 2);
+
             btnNao.style.position = 'fixed';
-
-            // Garante margem para o botão não ultrapassar os cantos da tela do dispositivo
-            const larguraMax = window.innerWidth - btnNao.offsetWidth - 40;
-            const alturaMax = window.innerHeight - btnNao.offsetHeight - 40;
-
-            const novoX = Math.floor(Math.random() * larguraMax) + 20;
-            const novoY = Math.floor(Math.random() * alturaMax) + 20;
-
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
 
-            // Sorteia as frases divertidas no botão
+            // Escolhe uma frase aleatória diferente do texto atual do botão
             let fraseAleatoria;
             do {
                 fraseAleatoria = frasesPersistentes[Math.floor(Math.random() * frasesPersistentes.length)];
@@ -259,11 +273,31 @@
             btnNao.innerText = fraseAleatoria;
         }
 
+        // Avança para a segunda etapa (Escolha de locais)
         function irParaOpcoes() {
             cardConvite.classList.add('escondido');
             cardOpcoes.classList.remove('escondido');
         }
 
+        // Finaliza, gera a chuva de corações e prepara o WhatsApp
         function finalizarEncontro() {
             const localSelecionado = document.querySelector('input[name="lugar"]:checked').value;
             
+            cardOpcoes.classList.add('escondido');
+            cardSucesso.classList.remove('escondido');
+            
+            mensagemFinal.innerText = `Combinado! Nosso encontro está confirmado para: ${localSelecionado}.`;
+
+            criarChuvaDeCoracoes();
+            enviarWhatsApp(localSelecionado);
+        }
+
+        function criarChuvaDeCoracoes() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const coracao = document.createElement('div');
+                    coracao.classList.add('coracao-clique');
+                    coracao.innerText = '❤️';
+                    coracao.style.left = Math.random() * 100 + 'vw';
+                    coracao.style.fontSize = Math.random() * 20 + 20 + 'px';
+                    coracao.style.animationDuration = Math.random() * 2 + 1.5 + 's';
