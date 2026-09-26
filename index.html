@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -11,7 +11,7 @@
     <style>
 
         /* ==========================================
-           CONFIGURAÇÃO DA PÁGINA
+           PÁGINA
         ========================================== */
 
         body {
@@ -26,6 +26,7 @@
             margin: 0;
 
             overflow: hidden;
+
             text-align: center;
 
             position: relative;
@@ -63,7 +64,8 @@
             text-shadow:
                 0 0 10px rgba(255, 77, 109, 0.4);
 
-            animation: subirFundo linear infinite;
+            animation:
+                subirFundo linear infinite;
 
             user-select: none;
         }
@@ -190,7 +192,7 @@
 
 
         /* ==========================================
-           CARD PRINCIPAL
+           CARD BRANCO
         ========================================== */
 
         .container {
@@ -228,6 +230,7 @@
 
 
         h1 {
+
             color: #ff4d6d;
 
             margin:
@@ -238,7 +241,7 @@
 
 
         /* ==========================================
-           OPÇÕES DE LUGAR
+           OPÇÕES
         ========================================== */
 
         .options-container {
@@ -323,7 +326,7 @@
 
 
         /* ==========================================
-           BOTÃO SIM
+           SIM
         ========================================== */
 
         .btn-verde {
@@ -343,12 +346,13 @@
 
         .btn-verde:hover {
 
-            transform: scale(1.1);
+            transform:
+                scale(1.1);
         }
 
 
         /* ==========================================
-           BOTÃO NÃO
+           NÃO
         ========================================== */
 
         #btn-nao {
@@ -362,8 +366,8 @@
             min-width: 110px;
 
             transition:
-                left 3.18s ease,
-                top 3.18s ease;
+                left 0.15s ease,
+                top 0.15s ease;
         }
 
 
@@ -428,42 +432,30 @@
 
 
     <!-- ==========================================
-         FUNDO COM CORAÇÕES E ROSAS
+         FUNDO
     ========================================== -->
 
     <div class="fundo-animado">
 
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💕</div>
-
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💕</div>
-
         <div class="elemento-fundo">❤️</div>
-
         <div class="elemento-fundo">🌹</div>
-
         <div class="elemento-fundo">💖</div>
 
     </div>
 
 
     <!-- ==========================================
-         PARTE 1 - CONVITE
+         PARTE 1
     ========================================== -->
 
     <div
@@ -479,9 +471,6 @@
 
         <div class="btn-container">
 
-
-            <!-- BOTÃO SIM -->
-
             <button
                 class="btn-verde"
                 id="btn-sim"
@@ -492,8 +481,6 @@
             </button>
 
 
-            <!-- BOTÃO NÃO -->
-
             <button
                 id="btn-nao"
                 onmouseenter="fugirPelaTela()">
@@ -502,20 +489,18 @@
 
             </button>
 
-
         </div>
 
     </div>
 
 
     <!-- ==========================================
-         PARTE 2 - ESCOLHA DO LUGAR
+         PARTE 2
     ========================================== -->
 
     <div
         class="container escondido"
         id="card-opcoes">
-
 
         <h1>
 
@@ -527,8 +512,6 @@
 
         <div class="options-container">
 
-
-            <!-- CINEMA -->
 
             <div class="option-item">
 
@@ -548,8 +531,6 @@
             </div>
 
 
-            <!-- LAGO -->
-
             <div class="option-item">
 
                 <input
@@ -566,8 +547,6 @@
 
             </div>
 
-
-            <!-- CAFÉ -->
 
             <div class="option-item">
 
@@ -591,7 +570,6 @@
 
         <div class="btn-container">
 
-
             <button
                 class="btn-verde"
                 style="width: 140px;"
@@ -601,20 +579,18 @@
 
             </button>
 
-
         </div>
 
     </div>
 
 
     <!-- ==========================================
-         PARTE 3 - SUCESSO
+         PARTE 3
     ========================================== -->
 
     <div
         class="container escondido"
         id="card-sucesso">
-
 
         <h2>
 
@@ -637,13 +613,11 @@
 
         </p>
 
-
     </div>
 
 
 
     <script>
-
 
         /* ==========================================
            ELEMENTOS
@@ -685,9 +659,8 @@
             );
 
 
-
         /* ==========================================
-           FRASES DO BOTÃO NÃO
+           FRASES
         ========================================== */
 
         const frasesNao = [
@@ -704,63 +677,67 @@
         let indiceFrase = 0;
 
 
-
         /* ==========================================
-           BOTÃO NÃO FOGE
+           FUNÇÃO DO BOTÃO NÃO
            
-           SEMPRE AO REDOR DO CARD
+           O BOTÃO FICA SOMENTE EM UMA
+           PEQUENA ÁREA AO REDOR DO CARD.
         ========================================== */
 
         function fugirPelaTela() {
 
-
             /*
-             * Coloca o botão em posição fixa.
+             * Transforma o botão em posição fixa.
              */
-
-            btnNao.style.position =
-                'fixed';
+            btnNao.style.position = "fixed";
 
 
             /*
-             * Descobre a posição
-             * do quadrado branco.
+             * Pega a posição do card.
              */
-
             const card =
                 cardConvite.getBoundingClientRect();
 
 
             /*
-             * Tamanho do botão.
+             * Mede o botão.
              */
-
             const larguraBotao =
                 btnNao.offsetWidth;
-
 
             const alturaBotao =
                 btnNao.offsetHeight;
 
 
             /*
-             * Distância entre o botão
-             * e o quadrado branco.
+             * DISTÂNCIA DO CARD.
+             *
+             * Apenas 6 pixels.
              */
-
-            const distancia = 15;
+            const distancia = 6;
 
 
             /*
-             * Guarda os lados que
-             * possuem espaço.
+             * ÁREA DE MOVIMENTO.
+             *
+             * Apenas 18 pixels de variação.
+             *
+             * Isso impede o botão de ficar
+             * passeando pela tela.
              */
+            const variacao = 18;
 
+
+            /*
+             * Lista dos lados possíveis.
+             */
             const ladosPossiveis = [];
 
 
             /*
-             * Verifica se pode ficar EM CIMA.
+             * =====================================
+             * VERIFICA CIMA
+             * =====================================
              */
 
             if (
@@ -770,14 +747,16 @@
             ) {
 
                 ladosPossiveis.push(
-                    'cima'
+                    "cima"
                 );
 
             }
 
 
             /*
-             * Verifica se pode ficar EMBAIXO.
+             * =====================================
+             * VERIFICA BAIXO
+             * =====================================
              */
 
             if (
@@ -788,14 +767,16 @@
             ) {
 
                 ladosPossiveis.push(
-                    'baixo'
+                    "baixo"
                 );
 
             }
 
 
             /*
-             * Verifica se pode ficar À ESQUERDA.
+             * =====================================
+             * VERIFICA ESQUERDA
+             * =====================================
              */
 
             if (
@@ -805,14 +786,16 @@
             ) {
 
                 ladosPossiveis.push(
-                    'esquerda'
+                    "esquerda"
                 );
 
             }
 
 
             /*
-             * Verifica se pode ficar À DIREITA.
+             * =====================================
+             * VERIFICA DIREITA
+             * =====================================
              */
 
             if (
@@ -823,8 +806,21 @@
             ) {
 
                 ladosPossiveis.push(
-                    'direita'
+                    "direita"
                 );
+
+            }
+
+
+            /*
+             * Se nenhum lado estiver disponível,
+             * não faz nada.
+             */
+            if (
+                ladosPossiveis.length === 0
+            ) {
+
+                return;
 
             }
 
@@ -832,7 +828,6 @@
             /*
              * Escolhe um lado aleatório.
              */
-
             const lado =
                 ladosPossiveis[
                     Math.floor(
@@ -846,28 +841,23 @@
             let novoY;
 
 
-
-            /* =====================================
-               CIMA
-            ===================================== */
+            /*
+             * =====================================
+             * CIMA
+             * =====================================
+             */
 
             if (
-                lado === 'cima'
+                lado === "cima"
             ) {
-
-
-                /*
-                 * Pode variar horizontalmente
-                 * por toda a largura do card.
-                 */
 
                 novoX =
                     card.left +
-                    Math.random() *
+                    (card.width -
+                    larguraBotao) / 2 +
                     (
-                        card.width -
-                        larguraBotao
-                    );
+                        Math.random() * 2 - 1
+                    ) * variacao;
 
 
                 novoY =
@@ -878,23 +868,23 @@
             }
 
 
-
-            /* =====================================
-               BAIXO
-            ===================================== */
+            /*
+             * =====================================
+             * BAIXO
+             * =====================================
+             */
 
             else if (
-                lado === 'baixo'
+                lado === "baixo"
             ) {
-
 
                 novoX =
                     card.left +
-                    Math.random() *
+                    (card.width -
+                    larguraBotao) / 2 +
                     (
-                        card.width -
-                        larguraBotao
-                    );
+                        Math.random() * 2 - 1
+                    ) * variacao;
 
 
                 novoY =
@@ -904,15 +894,15 @@
             }
 
 
-
-            /* =====================================
-               ESQUERDA
-            ===================================== */
+            /*
+             * =====================================
+             * ESQUERDA
+             * =====================================
+             */
 
             else if (
-                lado === 'esquerda'
+                lado === "esquerda"
             ) {
-
 
                 novoX =
                     card.left -
@@ -922,22 +912,22 @@
 
                 novoY =
                     card.top +
-                    Math.random() *
+                    (card.height -
+                    alturaBotao) / 2 +
                     (
-                        card.height -
-                        alturaBotao
-                    );
+                        Math.random() * 2 - 1
+                    ) * variacao;
 
             }
 
 
-
-            /* =====================================
-               DIREITA
-            ===================================== */
+            /*
+             * =====================================
+             * DIREITA
+             * =====================================
+             */
 
             else {
-
 
                 novoX =
                     card.right +
@@ -946,20 +936,22 @@
 
                 novoY =
                     card.top +
-                    Math.random() *
+                    (card.height -
+                    alturaBotao) / 2 +
                     (
-                        card.height -
-                        alturaBotao
-                    );
+                        Math.random() * 2 - 1
+                    ) * variacao;
 
             }
 
 
-
             /*
              * =====================================
-             * GARANTE QUE NÃO SAIA DA TELA
+             * LIMITES DA TELA
              * =====================================
+             *
+             * Mesmo se o card estiver próximo
+             * de uma borda, o botão não sai.
              */
 
             novoX =
@@ -986,20 +978,15 @@
                 );
 
 
-
             /*
-             * =====================================
-             * MOVE O BOTÃO
-             * =====================================
+             * Aplica a posição.
              */
 
             btnNao.style.left =
-                novoX + 'px';
-
+                novoX + "px";
 
             btnNao.style.top =
-                novoY + 'px';
-
+                novoY + "px";
 
 
             /*
@@ -1022,7 +1009,7 @@
 
 
             /*
-             * Volta para a primeira.
+             * Volta para a primeira frase.
              */
 
             if (
@@ -1037,18 +1024,15 @@
         }
 
 
-
         /* ==========================================
            CLIQUE NO SIM
         ========================================== */
 
         function irParaOpcoes() {
 
-
             /*
-             * Muda o título.
+             * Altera o título.
              */
-
             tituloConvite.innerText =
                 "Nossa achei que iria clicar no não Rs";
 
@@ -1056,43 +1040,31 @@
             /*
              * Esconde os botões.
              */
-
             const botoes =
                 cardConvite.querySelector(
-                    '.btn-container'
+                    ".btn-container"
                 );
 
 
             botoes.classList.add(
-                'escondido'
+                "escondido"
             );
 
 
             /*
-             * Espera dois segundos.
+             * Espera 2 segundos.
              */
-
             setTimeout(
                 function() {
 
-
-                    /*
-                     * Esconde o primeiro card.
-                     */
-
                     cardConvite.classList.add(
-                        'escondido'
+                        "escondido"
                     );
 
-
-                    /*
-                     * Mostra as opções.
-                     */
 
                     cardOpcoes.classList.remove(
-                        'escondido'
+                        "escondido"
                     );
-
 
                 },
                 2000
@@ -1101,18 +1073,15 @@
         }
 
 
-
         /* ==========================================
            FINALIZAR ENCONTRO
         ========================================== */
 
         function finalizarEncontro() {
 
-
             /*
-             * Descobre qual lugar foi escolhido.
+             * Descobre o lugar escolhido.
              */
-
             const lugarSelecionado =
                 document.querySelector(
                     'input[name="lugar"]:checked'
@@ -1122,7 +1091,6 @@
             /*
              * Mostra a mensagem.
              */
-
             mensagemFinal.innerText =
                 "Então está decidido: " +
                 lugarSelecionado +
@@ -1132,24 +1100,22 @@
             /*
              * Troca os cards.
              */
-
             cardOpcoes.classList.add(
-                'escondido'
+                "escondido"
             );
 
 
             cardSucesso.classList.remove(
-                'escondido'
+                "escondido"
             );
-
 
 
             /*
              * =====================================
-             * SEU NÚMERO DE WHATSAPP
+             * WHATSAPP
              * =====================================
              *
-             * Coloque:
+             * Coloque seu número aqui:
              *
              * 55 + DDD + número
              *
@@ -1159,14 +1125,12 @@
              */
 
             const SEU_NUMERO_WHATSAPP =
-                '5500000000000';
-
+                "5500000000000";
 
 
             /*
-             * Mensagem enviada.
+             * Mensagem do WhatsApp.
              */
-
             const mensagem =
                 "Oi! Eu escolhi " +
                 lugarSelecionado +
@@ -1174,9 +1138,8 @@
 
 
             /*
-             * Monta o link.
+             * Cria o link.
              */
-
             const linkWhatsApp =
                 "https://wa.me/" +
                 SEU_NUMERO_WHATSAPP +
@@ -1187,10 +1150,8 @@
 
 
             /*
-             * Abre o WhatsApp
-             * depois de dois segundos.
+             * Redireciona depois de 2 segundos.
              */
-
             setTimeout(
                 function() {
 
