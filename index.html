@@ -41,19 +41,96 @@
             user-select: none;
         }
 
-        .elemento-fundo:nth-child(1) { left: 5%; font-size: 32px; animation-duration: 5s; animation-delay: 0s; }
-        .elemento-fundo:nth-child(2) { left: 12%; font-size: 22px; animation-duration: 7s; animation-delay: 2s; }
-        .elemento-fundo:nth-child(3) { left: 20%; font-size: 28px; animation-duration: 6s; animation-delay: 1s; }
-        .elemento-fundo:nth-child(4) { left: 28%; font-size: 24px; animation-duration: 8s; animation-delay: 3s; }
-        .elemento-fundo:nth-child(5) { left: 35%; font-size: 32px; animation-duration: 5.5s; animation-delay: 0.5s; }
-        .elemento-fundo:nth-child(6) { left: 43%; font-size: 20px; animation-duration: 7.5s; animation-delay: 4s; }
-        .elemento-fundo:nth-child(7) { left: 50%; font-size: 26px; animation-duration: 6.2s; animation-delay: 1.8s; }
-        .elemento-fundo:nth-child(8) { left: 58%; font-size: 30px; animation-duration: 8.2s; animation-delay: 2.5s; }
-        .elemento-fundo:nth-child(9) { left: 65%; font-size: 22px; animation-duration: 5.8s; animation-delay: 0.2s; }
-        .elemento-fundo:nth-child(10) { left: 73%; font-size: 28px; animation-duration: 7.1s; animation-delay: 3.2s; }
-        .elemento-fundo:nth-child(11) { left: 80%; font-size: 25px; animation-duration: 6.4s; animation-delay: 4.5s; }
-        .elemento-fundo:nth-child(12) { left: 88%; font-size: 31px; animation-duration: 5.2s; animation-delay: 1.2s; }
-        .elemento-fundo:nth-child(13) { left: 95%; font-size: 21px; animation-duration: 7.9s; animation-delay: 2.9s; }
+        .elemento-fundo:nth-child(1) {
+            left: 5%;
+            font-size: 32px;
+            animation-duration: 5s;
+            animation-delay: 0s;
+        }
+
+        .elemento-fundo:nth-child(2) {
+            left: 12%;
+            font-size: 22px;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .elemento-fundo:nth-child(3) {
+            left: 20%;
+            font-size: 28px;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+
+        .elemento-fundo:nth-child(4) {
+            left: 28%;
+            font-size: 24px;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .elemento-fundo:nth-child(5) {
+            left: 35%;
+            font-size: 32px;
+            animation-duration: 5.5s;
+            animation-delay: 0.5s;
+        }
+
+        .elemento-fundo:nth-child(6) {
+            left: 43%;
+            font-size: 20px;
+            animation-duration: 7.5s;
+            animation-delay: 4s;
+        }
+
+        .elemento-fundo:nth-child(7) {
+            left: 50%;
+            font-size: 26px;
+            animation-duration: 6.2s;
+            animation-delay: 1.8s;
+        }
+
+        .elemento-fundo:nth-child(8) {
+            left: 58%;
+            font-size: 30px;
+            animation-duration: 8.2s;
+            animation-delay: 2.5s;
+        }
+
+        .elemento-fundo:nth-child(9) {
+            left: 65%;
+            font-size: 22px;
+            animation-duration: 5.8s;
+            animation-delay: 0.2s;
+        }
+
+        .elemento-fundo:nth-child(10) {
+            left: 73%;
+            font-size: 28px;
+            animation-duration: 7.1s;
+            animation-delay: 3.2s;
+        }
+
+        .elemento-fundo:nth-child(11) {
+            left: 80%;
+            font-size: 25px;
+            animation-duration: 6.4s;
+            animation-delay: 4.5s;
+        }
+
+        .elemento-fundo:nth-child(12) {
+            left: 88%;
+            font-size: 31px;
+            animation-duration: 5.2s;
+            animation-delay: 1.2s;
+        }
+
+        .elemento-fundo:nth-child(13) {
+            left: 95%;
+            font-size: 21px;
+            animation-duration: 7.9s;
+            animation-delay: 2.9s;
+        }
 
         @keyframes subirFundo {
             0% {
@@ -75,7 +152,7 @@
             }
         }
 
-        /* CARD */
+        /* CARD PRINCIPAL */
         .container {
             background-color: rgba(255, 255, 255, 0.96);
             padding: 35px 30px;
@@ -219,7 +296,10 @@
     </div>
 
 
-    <!-- PARTE 1 -->
+    <!-- ==========================================
+         PARTE 1 - CONVITE
+    =========================================== -->
+
     <div class="container" id="card-convite">
 
         <h1 id="titulo-convite">
@@ -246,7 +326,10 @@
     </div>
 
 
-    <!-- PARTE 2 -->
+    <!-- ==========================================
+         PARTE 2 - ESCOLHA DO LUGAR
+    =========================================== -->
+
     <div class="container escondido" id="card-opcoes">
 
         <h1>
@@ -256,6 +339,7 @@
         <div class="options-container">
 
             <div class="option-item">
+
                 <input
                     type="radio"
                     id="lugar1"
@@ -266,10 +350,12 @@
                 <label for="lugar1">
                     🎬 Cinema
                 </label>
+
             </div>
 
 
             <div class="option-item">
+
                 <input
                     type="radio"
                     id="lugar2"
@@ -279,10 +365,12 @@
                 <label for="lugar2">
                     🌅 Passeio no lago
                 </label>
+
             </div>
 
 
             <div class="option-item">
+
                 <input
                     type="radio"
                     id="lugar3"
@@ -292,6 +380,7 @@
                 <label for="lugar3">
                     ☕ Cafe ou melhor capuccino
                 </label>
+
             </div>
 
         </div>
@@ -313,7 +402,10 @@
     </div>
 
 
-    <!-- PARTE 3 -->
+    <!-- ==========================================
+         PARTE 3 - SUCESSO
+    =========================================== -->
+
     <div class="container escondido" id="card-sucesso">
 
         <h2>
@@ -335,17 +427,23 @@
            ELEMENTOS
         ========================================== */
 
-        const btnNao = document.getElementById('btn-nao');
+        const btnNao =
+            document.getElementById('btn-nao');
 
-        const cardConvite = document.getElementById('card-convite');
+        const cardConvite =
+            document.getElementById('card-convite');
 
-        const cardOpcoes = document.getElementById('card-opcoes');
+        const cardOpcoes =
+            document.getElementById('card-opcoes');
 
-        const cardSucesso = document.getElementById('card-sucesso');
+        const cardSucesso =
+            document.getElementById('card-sucesso');
 
-        const mensagemFinal = document.getElementById('mensagem-final');
+        const mensagemFinal =
+            document.getElementById('mensagem-final');
 
-        const tituloConvite = document.getElementById('titulo-convite');
+        const tituloConvite =
+            document.getElementById('titulo-convite');
 
 
         /* ==========================================
@@ -353,75 +451,178 @@
         ========================================== */
 
         const frasesNao = [
+
             "Da uma chance",
+
             "Tem certeza?",
+
             "Voce nao vai se arrepender"
+
         ];
 
         let indiceFrase = 0;
 
 
         /* ==========================================
-           BOTÃO NÃO FOGE
+           BOTÃO NÃO FOGE AO REDOR DO CARD
         ========================================== */
 
         function fugirPelaTela() {
 
             /*
-             * Transforma o botão em posição fixa
-             * para poder andar pela tela inteira.
+             * Coloca o botão em posição fixa.
              */
             btnNao.style.position = 'fixed';
 
 
             /*
-             * Limites da tela.
+             * Descobre onde está o card branco.
              */
-            const larguraMax =
-                window.innerWidth -
-                btnNao.offsetWidth -
-                40;
-
-            const alturaMax =
-                window.innerHeight -
-                btnNao.offsetHeight -
-                40;
+            const card =
+                cardConvite.getBoundingClientRect();
 
 
             /*
-             * Escolhe uma posição aleatória.
+             * Tamanho do botão.
              */
-            const novoX =
-                Math.floor(Math.random() * larguraMax) + 20;
+            const larguraBotao =
+                btnNao.offsetWidth;
 
-            const novoY =
-                Math.floor(Math.random() * alturaMax) + 20;
+            const alturaBotao =
+                btnNao.offsetHeight;
+
+
+            /*
+             * Distância entre o botão e o card.
+             */
+            const distancia = 25;
+
+
+            /*
+             * Escolhe aleatoriamente um dos
+             * quatro lados do card.
+             *
+             * 1 = acima
+             * 2 = abaixo
+             * 3 = esquerda
+             * 4 = direita
+             */
+            const lado =
+                Math.floor(Math.random() * 4) + 1;
+
+
+            let novoX;
+            let novoY;
+
+
+            /* ACIMA */
+            if (lado === 1) {
+
+                novoX =
+                    card.left +
+                    Math.random() *
+                    (card.width - larguraBotao);
+
+                novoY =
+                    card.top -
+                    alturaBotao -
+                    distancia;
+            }
+
+
+            /* ABAIXO */
+            else if (lado === 2) {
+
+                novoX =
+                    card.left +
+                    Math.random() *
+                    (card.width - larguraBotao);
+
+                novoY =
+                    card.bottom +
+                    distancia;
+            }
+
+
+            /* ESQUERDA */
+            else if (lado === 3) {
+
+                novoX =
+                    card.left -
+                    larguraBotao -
+                    distancia;
+
+                novoY =
+                    card.top +
+                    Math.random() *
+                    (card.height - alturaBotao);
+            }
+
+
+            /* DIREITA */
+            else {
+
+                novoX =
+                    card.right +
+                    distancia;
+
+                novoY =
+                    card.top +
+                    Math.random() *
+                    (card.height - alturaBotao);
+            }
+
+
+            /*
+             * Impede o botão de sair da tela.
+             */
+            novoX = Math.max(
+                10,
+                Math.min(
+                    novoX,
+                    window.innerWidth -
+                    larguraBotao -
+                    10
+                )
+            );
+
+
+            novoY = Math.max(
+                10,
+                Math.min(
+                    novoY,
+                    window.innerHeight -
+                    alturaBotao -
+                    10
+                )
+            );
 
 
             /*
              * Move o botão.
              */
-            btnNao.style.left = novoX + 'px';
+            btnNao.style.left =
+                novoX + 'px';
 
-            btnNao.style.top = novoY + 'px';
+            btnNao.style.top =
+                novoY + 'px';
 
 
             /*
-             * Troca o texto.
+             * Troca a frase.
              */
             btnNao.innerText =
                 frasesNao[indiceFrase];
 
 
             /*
-             * Vai para a próxima frase.
+             * Avança a frase.
              */
             indiceFrase++;
 
 
             /*
-             * Quando chegar na última,
-             * volta para a primeira.
+             * Volta para a primeira frase.
              */
             if (indiceFrase >= frasesNao.length) {
 
@@ -433,13 +634,13 @@
 
 
         /* ==========================================
-           BOTÃO SIM
+           CLIQUE NO SIM
         ========================================== */
 
         function irParaOpcoes() {
 
             /*
-             * Muda o título.
+             * Altera o título.
              */
             tituloConvite.innerText =
                 "Nossa achei que iria clicar no não Rs";
@@ -449,26 +650,32 @@
              * Esconde os botões.
              */
             const botoes =
-                cardConvite.querySelector('.btn-container');
+                cardConvite.querySelector(
+                    '.btn-container'
+                );
 
             botoes.classList.add('escondido');
 
 
             /*
-             * Aguarda 2 segundos.
+             * Aguarda dois segundos.
              */
             setTimeout(function() {
 
                 /*
-                 * Esconde o primeiro card.
+                 * Esconde o convite.
                  */
-                cardConvite.classList.add('escondido');
+                cardConvite.classList.add(
+                    'escondido'
+                );
 
 
                 /*
                  * Mostra as opções.
                  */
-                cardOpcoes.classList.remove('escondido');
+                cardOpcoes.classList.remove(
+                    'escondido'
+                );
 
             }, 2000);
 
@@ -481,27 +688,47 @@
 
         function finalizarEncontro() {
 
+            /*
+             * Descobre qual opção foi escolhida.
+             */
             const lugarSelecionado =
                 document.querySelector(
                     'input[name="lugar"]:checked'
                 ).value;
 
 
+            /*
+             * Mensagem na tela.
+             */
             mensagemFinal.innerText =
                 "Então está decidido: " +
                 lugarSelecionado +
                 "! 🥰";
 
 
-            cardOpcoes.classList.add('escondido');
+            /*
+             * Troca os cards.
+             */
+            cardOpcoes.classList.add(
+                'escondido'
+            );
 
-            cardSucesso.classList.remove('escondido');
+            cardSucesso.classList.remove(
+                'escondido'
+            );
 
 
             /*
-             * Coloque seu número aqui.
+             * =====================================
+             * SEU NÚMERO DE WHATSAPP
+             * =====================================
+             *
+             * Coloque:
+             *
+             * 55 + DDD + número
              *
              * Exemplo:
+             *
              * 5545999999999
              */
 
@@ -510,7 +737,7 @@
 
 
             /*
-             * Mensagem enviada para o WhatsApp.
+             * Mensagem que será enviada.
              */
             const mensagem =
                 "Oi! Eu escolhi " +
@@ -529,8 +756,7 @@
 
 
             /*
-             * Aguarda 2 segundos
-             * e abre o WhatsApp.
+             * Redireciona depois de dois segundos.
              */
             setTimeout(function() {
 
